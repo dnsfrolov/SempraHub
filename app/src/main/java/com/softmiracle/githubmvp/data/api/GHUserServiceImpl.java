@@ -1,6 +1,6 @@
 package com.softmiracle.githubmvp.data.api;
 
-import com.softmiracle.githubmvp.Constants;
+import com.softmiracle.githubmvp.utils.Constants;
 import com.softmiracle.githubmvp.data.models.GHUser;
 
 import retrofit2.Call;
@@ -32,7 +32,9 @@ public class GHUserServiceImpl implements GHUserService {
         mGHApi.getUserProfile(user).enqueue(new Callback<GHUser>() {
             @Override
             public void onResponse(Call<GHUser> call, Response<GHUser> response) {
-                callback.onSuccess(response.body());
+                if (response.isSuccessful() && response.body() != null) {
+                    callback.onSuccess(response.body());
+                }
             }
 
             @Override

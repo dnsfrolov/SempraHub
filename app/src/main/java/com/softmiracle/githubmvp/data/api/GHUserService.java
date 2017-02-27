@@ -6,7 +6,7 @@ import com.softmiracle.githubmvp.data.models.GHUser;
  * Created by Denys on 25.02.2017.
  */
 
-interface GHUserService {
+public interface GHUserService {
 
     interface GHUserCallback<T> {
 

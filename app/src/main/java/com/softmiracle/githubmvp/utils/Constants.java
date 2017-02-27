@@ -1,4 +1,4 @@
-package com.softmiracle.githubmvp;
+package com.softmiracle.githubmvp.utils;
 
 /**
  * Created by Denys on 25.02.2017.
