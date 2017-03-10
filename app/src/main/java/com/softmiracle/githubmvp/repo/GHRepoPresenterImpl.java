@@ -1,9 +1,8 @@
-package com.softmiracle.githubmvp.presenter.repo;
+package com.softmiracle.githubmvp.repo;
 
 import com.softmiracle.githubmvp.data.api.GHRepoService;
 import com.softmiracle.githubmvp.data.api.GHRepoServiceImpl;
 import com.softmiracle.githubmvp.data.models.GHRepo;
-import com.softmiracle.githubmvp.view.GHRepoView;
 
 import java.util.List;
 

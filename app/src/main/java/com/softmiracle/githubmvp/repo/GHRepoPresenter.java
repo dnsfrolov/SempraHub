@@ -1,4 +1,4 @@
-package com.softmiracle.githubmvp.presenter.repo;
+package com.softmiracle.githubmvp.repo;
 
 /**
  * Created by Denys on 01.03.2017.

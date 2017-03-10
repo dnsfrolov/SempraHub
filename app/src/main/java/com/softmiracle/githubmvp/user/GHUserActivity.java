@@ -1,4 +1,4 @@
-package com.softmiracle.githubmvp.view.activities;
+package com.softmiracle.githubmvp.user;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,9 +13,8 @@ import com.bumptech.glide.Glide;
 import com.race604.drawable.wave.WaveDrawable;
 import com.softmiracle.githubmvp.R;
 import com.softmiracle.githubmvp.data.models.GHUser;
-import com.softmiracle.githubmvp.presenter.user.GHUserPresenter;
-import com.softmiracle.githubmvp.presenter.user.GHUserPresenterImpl;
-import com.softmiracle.githubmvp.view.GHUserView;
+import com.softmiracle.githubmvp.repo.GHRepoActivity;
+
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

@@ -1,9 +1,8 @@
-package com.softmiracle.githubmvp.presenter.user;
+package com.softmiracle.githubmvp.user;
 
 import com.softmiracle.githubmvp.data.api.GHUserService;
 import com.softmiracle.githubmvp.data.api.GHUserServiceImpl;
 import com.softmiracle.githubmvp.data.models.GHUser;
-import com.softmiracle.githubmvp.view.GHUserView;
 
 /**
  * Created by Denys on 26.02.2017.

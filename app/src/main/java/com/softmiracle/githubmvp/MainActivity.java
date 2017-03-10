@@ -1,4 +1,4 @@
-package com.softmiracle.githubmvp.view.activities;
+package com.softmiracle.githubmvp;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 
-import com.softmiracle.githubmvp.R;
+import com.softmiracle.githubmvp.user.GHUserActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

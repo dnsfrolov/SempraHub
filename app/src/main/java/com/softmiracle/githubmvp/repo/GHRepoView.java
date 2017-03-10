@@ -1,4 +1,4 @@
-package com.softmiracle.githubmvp.view;
+package com.softmiracle.githubmvp.repo;
 
 import com.softmiracle.githubmvp.data.models.GHRepo;
 

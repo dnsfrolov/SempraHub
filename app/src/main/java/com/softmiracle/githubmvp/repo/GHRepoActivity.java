@@ -1,4 +1,4 @@
-package com.softmiracle.githubmvp.view.activities;
+package com.softmiracle.githubmvp.repo;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,12 +11,8 @@ import android.widget.Toast;
 import com.race604.drawable.wave.WaveDrawable;
 import com.softmiracle.githubmvp.R;
 import com.softmiracle.githubmvp.data.models.GHRepo;
-import com.softmiracle.githubmvp.presenter.repo.GHRepoPresenter;
-import com.softmiracle.githubmvp.presenter.repo.GHRepoPresenterImpl;
-import com.softmiracle.githubmvp.view.GHRepoView;
-import com.softmiracle.githubmvp.view.adapters.GHRepoAdapter;
+import com.softmiracle.githubmvp.adapters.GHRepoAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;

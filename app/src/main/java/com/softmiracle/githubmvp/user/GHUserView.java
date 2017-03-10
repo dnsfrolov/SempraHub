@@ -1,4 +1,4 @@
-package com.softmiracle.githubmvp.view;
+package com.softmiracle.githubmvp.user;
 
 import com.softmiracle.githubmvp.data.models.GHUser;
 
@@ -10,7 +10,7 @@ public interface GHUserView {
 
     void showProgressIndicator();
 
-    void  hideProgressIndicator();
+    void hideProgressIndicator();
 
     void showUserProfile(GHUser user);
 
