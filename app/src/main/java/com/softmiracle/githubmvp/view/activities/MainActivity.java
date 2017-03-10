@@ -24,10 +24,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickUser(View view) {
-        newIntent();
+        loadActivity();
     }
 
-    public void newIntent() {
+    public void loadActivity() {
         Intent intent = new Intent(MainActivity.this, GHUserActivity.class);
         intent.putExtra("name", mEditUsername.getText().toString());
         startActivity(intent);

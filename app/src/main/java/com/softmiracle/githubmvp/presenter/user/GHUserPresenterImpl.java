@@ -1,6 +1,4 @@
-package com.softmiracle.githubmvp.presenter;
-
-import android.widget.Toast;
+package com.softmiracle.githubmvp.presenter.user;
 
 import com.softmiracle.githubmvp.data.api.GHUserService;
 import com.softmiracle.githubmvp.data.api.GHUserServiceImpl;
@@ -23,18 +21,24 @@ public class GHUserPresenterImpl implements GHUserPresenter {
 
     @Override
     public void loadUser(String name) {
+        if (mGHUserView != null) {
+            mGHUserView.showProgressIndicator();
+        }
+
         mGHUserService.getUserProfile(name, new GHUserService.GHUserCallback<GHUser>() {
             @Override
             public void onSuccess(GHUser response) {
                 if (response != null) {
                     // ?
                     mGHUserView.showUserProfile(response);
+                    mGHUserView.hideProgressIndicator();
                 }
             }
 
             @Override
             public void onError(Throwable error) {
-                error.getMessage();
+                mGHUserView.showError(error);
+                mGHUserView.hideProgressIndicator();
             }
         });
     }

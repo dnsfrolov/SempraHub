@@ -1,4 +1,4 @@
-package com.softmiracle.githubmvp.presenter;
+package com.softmiracle.githubmvp.presenter.user;
 
 /**
  * Created by Denys on 26.02.2017.

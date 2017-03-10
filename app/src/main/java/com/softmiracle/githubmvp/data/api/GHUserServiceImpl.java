@@ -1,7 +1,7 @@
 package com.softmiracle.githubmvp.data.api;
 
-import com.softmiracle.githubmvp.utils.Constants;
 import com.softmiracle.githubmvp.data.models.GHUser;
+import com.softmiracle.githubmvp.utils.Constants;
 
 import retrofit2.Call;
 import retrofit2.Callback;

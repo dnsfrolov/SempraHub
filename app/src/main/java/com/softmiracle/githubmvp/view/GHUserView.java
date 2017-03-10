@@ -10,5 +10,9 @@ public interface GHUserView {
 
     void showProgressIndicator();
 
+    void  hideProgressIndicator();
+
     void showUserProfile(GHUser user);
+
+    void showError(Throwable error);
 }

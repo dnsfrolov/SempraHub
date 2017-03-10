@@ -11,6 +11,13 @@
     tools:context="com.softmiracle.githubmvp.view.activities.GHUserActivity">
 
     <ImageView
+        android:id="@+id/im_load_user"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
+
+    <ImageView
         android:id="@+id/iv_avatar"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -51,5 +58,12 @@
         android:layout_below="@id/tv_following"
         android:fontFamily="monospace" />
 
+    <Button
+        android:id="@+id/btn_repo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_email"
+        android:layout_centerHorizontal="true"
+        android:onClick="onClickRepo" />
 
 </RelativeLayout>

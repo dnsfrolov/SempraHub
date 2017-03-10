@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.softmiracle.githubmvp">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -17,7 +17,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.activities.GHUserActivity"></activity>
+        <activity android:name=".view.activities.GHUserActivity" />
+        <activity android:name=".view.activities.GHRepoActivity"></activity>
     </application>
 
 </manifest>
