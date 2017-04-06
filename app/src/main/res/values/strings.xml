@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GitHubMVP</string>
+    <string name="error_sign_out">Fail to sign out</string>
 </resources>

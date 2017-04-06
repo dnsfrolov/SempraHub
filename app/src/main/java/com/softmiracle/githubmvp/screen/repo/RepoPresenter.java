@@ -1,10 +1,10 @@
-package com.softmiracle.githubmvp.repo;
+package com.softmiracle.githubmvp.screen.repo;
 
 /**
  * Created by Denys on 01.03.2017.
  */
 
-public interface GHRepoPresenter {
+public interface RepoPresenter {
 
     void loadRepo(String user);
 

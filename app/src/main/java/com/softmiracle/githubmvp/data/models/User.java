@@ -6,65 +6,53 @@ import com.google.gson.annotations.SerializedName;
  * Created by Denys on 25.02.2017.
  */
 
-public class GHUser {
+public class User {
     @SerializedName("login")
     private String login;
     @SerializedName("name")
     private String name;
     @SerializedName("followers")
-    private String followers;
+    private int followers;
     @SerializedName("following")
-    private String following;
+    private int following;
     @SerializedName("avatar_url")
     private String avatar;
     @SerializedName("email")
     private String email;
+    @SerializedName("company")
+    private String company;
+    @SerializedName("public_repos")
+    private int publicRepos;
 
     public String getLogin() {
         return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getFollowers() {
+    public int getFollowers() {
         return followers;
     }
 
-    public void setFollowers(String followers) {
-        this.followers = followers;
-    }
-
-    public String getFollowing() {
+    public int getFollowing() {
         return following;
-    }
-
-    public void setFollowing(String following) {
-        this.following = following;
     }
 
     public String getAvatar() {
         return avatar;
     }
 
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public String getCompany() {
+        return company;
+    }
+
+    public int getPublicRepos() {
+        return publicRepos;
     }
 }

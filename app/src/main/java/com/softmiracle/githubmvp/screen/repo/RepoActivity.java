@@ -1,4 +1,4 @@
-package com.softmiracle.githubmvp.repo;
+package com.softmiracle.githubmvp.screen.repo;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,23 +10,23 @@ import android.widget.Toast;
 
 import com.race604.drawable.wave.WaveDrawable;
 import com.softmiracle.githubmvp.R;
-import com.softmiracle.githubmvp.data.models.GHRepo;
-import com.softmiracle.githubmvp.adapters.GHRepoAdapter;
+import com.softmiracle.githubmvp.adapters.RepoAdapter;
+import com.softmiracle.githubmvp.data.models.Repo;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class GHRepoActivity extends AppCompatActivity implements GHRepoView {
+public class RepoActivity extends AppCompatActivity implements RepoView {
 
     @BindView(R.id.im_load_repo)
     ImageView loadView;
     @BindView(R.id.repo_list)
     RecyclerView recyclerView;
 
-    private GHRepoPresenter mPresenter;
-    private GHRepoAdapter mRepoAdapter;
+    private RepoPresenter mPresenter;
+    private RepoAdapter mRepoAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +40,10 @@ public class GHRepoActivity extends AppCompatActivity implements GHRepoView {
         String mNameString = bundle.getString("name");
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mRepoAdapter = new GHRepoAdapter();
+        mRepoAdapter = new RepoAdapter();
         recyclerView.setAdapter(mRepoAdapter);
 
-        mPresenter = new GHRepoPresenterImpl(this);
+        mPresenter = new RepoPresenterImpl(this);
         mPresenter.loadRepo(mNameString);
     }
 
@@ -65,7 +65,7 @@ public class GHRepoActivity extends AppCompatActivity implements GHRepoView {
     }
 
     @Override
-    public void showRepo(List<GHRepo> repoList) {
+    public void showRepo(List<Repo> repoList) {
         mRepoAdapter.setData(repoList);
         mRepoAdapter.notifyDataSetChanged();
     }

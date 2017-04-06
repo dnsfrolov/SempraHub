@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.softmiracle.githubmvp.R;
-import com.softmiracle.githubmvp.data.models.GHRepo;
+import com.softmiracle.githubmvp.data.models.Repo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,15 +19,15 @@ import butterknife.ButterKnife;
  * Created by dnsfrolov on 09.03.2017.
  */
 
-public class GHRepoAdapter extends RecyclerView.Adapter {
+public class RepoAdapter extends RecyclerView.Adapter {
 
-    private List<GHRepo> mList;
+    private List<Repo> mList;
 
-    public GHRepoAdapter() {
+    public RepoAdapter() {
         mList = new ArrayList<>();
     }
 
-    public void setData(List<GHRepo> list) {
+    public void setData(List<Repo> list) {
         if (mList == null) {
             mList = new ArrayList<>();
         }
@@ -37,12 +37,12 @@ public class GHRepoAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_repo, parent, false);
-        return new GHRepoViewHolder(mView);
+        return new RepoViewHolder(mView);
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        final GHRepoViewHolder repoViewHolder = (GHRepoViewHolder) holder;
+        final RepoViewHolder repoViewHolder = (RepoViewHolder) holder;
         repoViewHolder.initData(holder.getAdapterPosition());
     }
 
@@ -52,7 +52,7 @@ public class GHRepoAdapter extends RecyclerView.Adapter {
     }
 
 
-    public class GHRepoViewHolder extends RecyclerView.ViewHolder {
+    public class RepoViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.tv_repo_name)
         TextView mRepoName;
@@ -61,13 +61,13 @@ public class GHRepoAdapter extends RecyclerView.Adapter {
         @BindView(R.id.tv_repo_language)
         TextView mRepoLanguage;
 
-        public GHRepoViewHolder(View itemView) {
+        public RepoViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
 
         public void initData(int adapterPosition) {
-            final GHRepo ghRepo = mList.get(adapterPosition);
+            final Repo ghRepo = mList.get(adapterPosition);
             mRepoName.setText("name: " + ghRepo.getName());
             mRepoDescription.setText("description: " + ghRepo.getDescription());
             mRepoLanguage.setText("language: " + ghRepo.getLanguage());

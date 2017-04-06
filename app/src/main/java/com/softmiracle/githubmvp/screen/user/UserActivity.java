@@ -1,4 +1,4 @@
-package com.softmiracle.githubmvp.user;
+package com.softmiracle.githubmvp.screen.user;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,14 +12,14 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.race604.drawable.wave.WaveDrawable;
 import com.softmiracle.githubmvp.R;
-import com.softmiracle.githubmvp.data.models.GHUser;
-import com.softmiracle.githubmvp.repo.GHRepoActivity;
+import com.softmiracle.githubmvp.data.models.User;
+import com.softmiracle.githubmvp.screen.repo.RepoActivity;
 
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class GHUserActivity extends AppCompatActivity implements GHUserView {
+public class UserActivity extends AppCompatActivity implements UserView {
 
     @BindView(R.id.iv_avatar)
     ImageView mAvatar;
@@ -39,7 +39,7 @@ public class GHUserActivity extends AppCompatActivity implements GHUserView {
     Button mBtnRepo;
 
     private String mNameString;
-    private GHUserPresenter mPresenter;
+    private UserPresenter mPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,11 +49,9 @@ public class GHUserActivity extends AppCompatActivity implements GHUserView {
 
         setProgressIndicator();
 
-        Bundle bundle = getIntent().getExtras();
-        mNameString = bundle.getString("name");
 
-        mPresenter = new GHUserPresenterImpl(this);
-        mPresenter.loadUser(mNameString);
+        mPresenter = new UserPresenterImpl(this);
+       // mPresenter.loadUser(mNameString);
     }
 
     @Override
@@ -76,18 +74,18 @@ public class GHUserActivity extends AppCompatActivity implements GHUserView {
     }
 
     @Override
-    public void showUserProfile(GHUser user) {
+    public void showUserProfile(User user) {
         setDataProfile(user);
         setAvatarProfile(user);
     }
 
-    private void setAvatarProfile(GHUser user) {
+    private void setAvatarProfile(User user) {
         Glide.with(getBaseContext())
                 .load(user.getAvatar())
                 .into(mAvatar);
     }
 
-    private void setDataProfile(GHUser user) {
+    private void setDataProfile(User user) {
         mUsername.setText("Username: " + user.getName());
         mLogin.setText("Login: " + user.getLogin());
         mFollowers.setText("Followers: " + user.getFollowers());
@@ -107,7 +105,7 @@ public class GHUserActivity extends AppCompatActivity implements GHUserView {
     }
 
     public void loadActivity() {
-        Intent intent = new Intent(GHUserActivity.this, GHRepoActivity.class);
+        Intent intent = new Intent(UserActivity.this, RepoActivity.class);
         intent.putExtra("name", mNameString);
         startActivity(intent);
     }
