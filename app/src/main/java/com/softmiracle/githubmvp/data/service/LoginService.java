@@ -10,7 +10,7 @@ public interface LoginService {
 
     interface LoginCallback<T> {
 
-        void onSuccess(Authorization response);
+        void onSuccess(T response);
 
         void onError(Throwable error);
     }

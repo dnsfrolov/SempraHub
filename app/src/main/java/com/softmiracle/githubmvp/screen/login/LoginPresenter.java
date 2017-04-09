@@ -6,9 +6,7 @@ package com.softmiracle.githubmvp.screen.login;
 
 public interface LoginPresenter {
 
-    void login(String username,String password);
-
-    void signOut();
+    void login(String username, String password);
 
     void detachView();
 }

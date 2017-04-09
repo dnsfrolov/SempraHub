@@ -28,7 +28,6 @@ public class UserPresenterImpl implements UserPresenter {
             @Override
             public void onSuccess(User response) {
                 if (response != null) {
-                    // ?
                     mUserView.showUserProfile(response);
                     mUserView.hideProgressIndicator();
                 }
@@ -44,6 +43,6 @@ public class UserPresenterImpl implements UserPresenter {
 
     @Override
     public void detachView() {
-        this.mUserView = null;
+        mUserView = null;
     }
 }

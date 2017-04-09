@@ -12,7 +12,7 @@ public interface RepoService {
 
     interface RepoCallback<T> {
 
-        void onSuccess(List<Repo> repoList);
+        void onSuccess(T repoList);
 
         void onError(Throwable error);
     }

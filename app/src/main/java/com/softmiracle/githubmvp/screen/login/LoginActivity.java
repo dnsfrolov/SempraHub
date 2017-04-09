@@ -1,5 +1,6 @@
 package com.softmiracle.githubmvp.screen.login;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -7,9 +8,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.softmiracle.githubmvp.R;
+import com.softmiracle.githubmvp.screen.home.HomeActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
 
@@ -43,17 +46,13 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     @Override
     public void loginSuccess() {
         Toast.makeText(this, "success", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this, HomeActivity.class));
     }
 
     @Override
-    public void showUsernameError() {
-
+    public void showError() {
     }
 
-    @Override
-    public void showPasswordError() {
-
-    }
 
     @Override
     protected void onDestroy() {
@@ -61,7 +60,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         mPresenter.detachView();
     }
 
-    public void onClickLogin(View view) {
+    @OnClick(R.id.btn_signIn)
+    public void onSignIn() {
         String username = mUsername.getText().toString().trim();
         String password = mPassword.getText().toString().trim();
         mPresenter.login(username, password);

@@ -5,7 +5,7 @@ android {
     buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "com.softmiracle.githubmvp"
-        minSdkVersion 21
+        minSdkVersion 16
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -25,12 +25,6 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
-
-
-
-
-
-
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.squareup.okhttp3:okhttp:3.4.1'
     compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
@@ -46,5 +40,6 @@ dependencies {
     compile 'com.github.orhanobut:hawk:1.23'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.race604.waveloading:library:1.1.1'
+    compile 'de.hdodenhof:circleimageview:2.1.0'
     testCompile 'junit:junit:4.12'
 }

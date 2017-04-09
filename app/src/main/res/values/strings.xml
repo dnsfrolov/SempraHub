@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">GitHubMVP</string>
     <string name="error_sign_out">Fail to sign out</string>
+    <string name="nav_drawer_open">Navigation drawer open</string>
+    <string name="nav_drawer_close">Navigation drawer close</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
 </resources>

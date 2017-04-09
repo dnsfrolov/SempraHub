@@ -35,16 +35,10 @@ class LoginPresenterImpl implements LoginPresenter {
 
             @Override
             public void onError(Throwable error) {
-                mLoginView.showUsernameError();
+                mLoginView.showError();
+                mLoginView.hideProgressIndicator();
             }
         });
-    }
-
-    @Override
-    public void signOut() {
-        if (mLoginView != null) {
-            mLoginView.showProgressIndicator();
-        }
     }
 
     @Override

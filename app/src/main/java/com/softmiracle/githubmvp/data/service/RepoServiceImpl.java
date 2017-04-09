@@ -30,7 +30,7 @@ public class RepoServiceImpl implements RepoService {
     }
 
     @Override
-    public void getRepo(String user, final RepoCallback callback) {
+    public void getRepo(String user, final RepoCallback<List<Repo>> callback) {
 
         mApi.getRepo(user).enqueue(new Callback<List<Repo>>() {
             @Override

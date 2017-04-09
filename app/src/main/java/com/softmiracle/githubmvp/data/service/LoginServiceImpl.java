@@ -77,7 +77,7 @@ public class LoginServiceImpl implements LoginService {
     }
 
     @Override
-    public void signIn(String username, String password, final LoginCallback<Authorization> callback) {
+    public void signIn(final String username, String password, final LoginCallback<Authorization> callback) {
         final CreateAuthorization createAuthorization = new CreateAuthorization();
         setUserInfo(username, password);
         mApi.getAuthorization(createAuthorization).enqueue(new Callback<Authorization>() {
@@ -86,6 +86,7 @@ public class LoginServiceImpl implements LoginService {
                 if (response.isSuccessful() && response.body() != null) {
                     callback.onSuccess(response.body());
                     AccountPreferences.setToken(response.body().getToken());
+                    AccountPreferences.setUsername(username);
                 }
             }
 

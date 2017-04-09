@@ -12,7 +12,5 @@ public interface LoginView {
 
     void loginSuccess();
 
-    void showUsernameError();
-
-    void showPasswordError();
+    void showError();
 }
