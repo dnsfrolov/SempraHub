@@ -1,4 +1,4 @@
-package com.softmiracle.githubmvp.screen.main;
+package com.softmiracle.githubmvp.screen.start;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,21 +8,20 @@ import com.softmiracle.githubmvp.screen.home.HomeActivity;
 import com.softmiracle.githubmvp.screen.login.LoginActivity;
 
 
-public class MainActivity extends AppCompatActivity implements MainView {
+public class StartActivity extends AppCompatActivity implements StartView {
 
-    private MainPresenter mPresenter;
+    private StartPresenter mPresenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mPresenter = new MainPresenterImpl(this);
+        mPresenter = new StartPresenterImpl(this);
         mPresenter.checkAuthorized();
     }
 
     @Override
     public void setAuthorized(boolean isAuthorized) {
         Intent intent = new Intent(this, isAuthorized ? HomeActivity.class : LoginActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         this.finish();
     }

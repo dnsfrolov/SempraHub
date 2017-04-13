@@ -41,5 +41,6 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.race604.waveloading:library:1.1.1'
     compile 'de.hdodenhof:circleimageview:2.1.0'
+    compile 'com.android.support:support-v4:25.3.1'
     testCompile 'junit:junit:4.12'
 }

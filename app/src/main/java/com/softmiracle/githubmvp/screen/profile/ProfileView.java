@@ -1,4 +1,4 @@
-package com.softmiracle.githubmvp.screen.user;
+package com.softmiracle.githubmvp.screen.profile;
 
 import com.softmiracle.githubmvp.data.models.User;
 
@@ -6,7 +6,7 @@ import com.softmiracle.githubmvp.data.models.User;
  * Created by Denys on 26.02.2017.
  */
 
-public interface UserView {
+public interface ProfileView {
 
     void showProgressIndicator();
 

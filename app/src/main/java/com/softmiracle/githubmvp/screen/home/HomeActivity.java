@@ -1,5 +1,6 @@
 package com.softmiracle.githubmvp.screen.home;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.softmiracle.githubmvp.R;
 import com.softmiracle.githubmvp.data.models.User;
+import com.softmiracle.githubmvp.screen.profile.ProfileActivity;
 import com.softmiracle.githubmvp.utils.AccountPreferences;
 
 import butterknife.BindView;
@@ -65,6 +67,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         final int id = item.getItemId();
         switch (id) {
             case R.id.nav_my_profile:
+                showUserProfile();
                 break;
             case R.id.nav_my_repos:
                 break;
@@ -85,9 +88,19 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         final TextView nameView = (TextView) headerLayout.findViewById(R.id.nav_name_view);
 
         nameView.setText(user.getName());
-        Glide.with(getBaseContext())
-                .load(user.getAvatar())
-                .into(avatarView);
+        Glide.with(getBaseContext()).load(user.getAvatar()).into(avatarView);
+        avatarView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    @Override
+    public void showUserProfile() {
+
     }
 
     @Override

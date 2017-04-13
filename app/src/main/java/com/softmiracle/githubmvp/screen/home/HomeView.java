@@ -10,6 +10,8 @@ public interface HomeView {
 
     void showUserInfo(User user);
 
+    void showUserProfile();
+
     void showProgressIndicator();
 
     void hideProgressIndicator();

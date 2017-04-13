@@ -1,10 +1,10 @@
-package com.softmiracle.githubmvp.screen.main;
+package com.softmiracle.githubmvp.screen.start;
 
 /**
  * Created by dnsfrolov on 04.04.2017.
  */
 
-public interface MainView {
+public interface StartView {
 
     void setAuthorized(boolean isAuthorized);
 }
