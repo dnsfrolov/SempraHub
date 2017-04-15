@@ -1,4 +1,4 @@
-package com.softmiracle.githubmvp.screen.profile;
+package com.softmiracle.githubmvp.screen.user;
 
 import com.softmiracle.githubmvp.data.models.User;
 import com.softmiracle.githubmvp.data.service.UserService;
@@ -8,12 +8,12 @@ import com.softmiracle.githubmvp.data.service.UserServiceImpl;
  * Created by Denys on 26.02.2017.
  */
 
-public class ProfilePresenterImpl implements ProfilePresenter {
+public class UserPresenterImpl implements UserPresenter {
 
-    private ProfileView mUserView;
+    private UserView mUserView;
     private UserService mUserService;
 
-    public ProfilePresenterImpl(ProfileView userView) {
+    public UserPresenterImpl(UserView userView) {
         this.mUserView = userView;
         this.mUserService = new UserServiceImpl();
     }

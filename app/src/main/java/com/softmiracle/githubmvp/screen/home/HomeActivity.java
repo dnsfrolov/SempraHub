@@ -72,7 +72,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_my_repos:
                 break;
             case R.id.nav_sign_out:
-                AccountPreferences.clear();
+                AccountPreferences.removeToken();
                 finish();
                 break;
         }

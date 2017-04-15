@@ -10,11 +10,11 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/SempraTheme_light">
         <activity
             android:name=".screen.start.StartActivity"
             android:launchMode="singleTask"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:theme="@style/SempraTheme_light">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,22 +24,22 @@
 
         <activity
             android:name=".screen.profile.ProfileActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:theme="@style/SempraTheme_light"
             android:parentActivityName=".screen.home.HomeActivity"/>
 
         <activity
             android:name=".screen.repo.RepoActivity"
             android:parentActivityName=".screen.home.HomeActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:theme="@style/SempraTheme_light" />
 
         <activity
             android:name=".screen.login.LoginActivity"
             android:launchMode="singleTask"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:theme="@style/SempraTheme_light" />
 
         <activity
             android:name=".screen.home.HomeActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:theme="@style/SempraTheme_light" />
     </application>
 
 </manifest>

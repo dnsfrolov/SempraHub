@@ -1,10 +1,10 @@
-package com.softmiracle.githubmvp.screen.profile;
+package com.softmiracle.githubmvp.screen.user;
 
 /**
  * Created by Denys on 26.02.2017.
  */
 
-public interface ProfilePresenter {
+public interface UserPresenter {
 
     void loadUser(String name);
 

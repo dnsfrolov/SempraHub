@@ -11,6 +11,7 @@ import com.softmiracle.githubmvp.screen.login.LoginActivity;
 public class StartActivity extends AppCompatActivity implements StartView {
 
     private StartPresenter mPresenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,8 +23,8 @@ public class StartActivity extends AppCompatActivity implements StartView {
     @Override
     public void setAuthorized(boolean isAuthorized) {
         Intent intent = new Intent(this, isAuthorized ? HomeActivity.class : LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
-        this.finish();
     }
 
     @Override

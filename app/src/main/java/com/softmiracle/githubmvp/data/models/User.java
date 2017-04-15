@@ -2,6 +2,8 @@ package com.softmiracle.githubmvp.data.models;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Date;
+
 /**
  * Created by Denys on 25.02.2017.
  */
@@ -23,6 +25,16 @@ public class User {
     private String company;
     @SerializedName("public_repos")
     private int publicRepos;
+    @SerializedName("gists_url")
+    private String gistsUrl;
+    @SerializedName("starred_url")
+    private String starredUrl;
+    @SerializedName("created_at")
+    private String createdAt;
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
 
     public String getLogin() {
         return login;
@@ -54,5 +66,13 @@ public class User {
 
     public int getPublicRepos() {
         return publicRepos;
+    }
+
+    public String getStarredUrl() {
+        return starredUrl;
+    }
+
+    public String getGistsUrl() {
+        return gistsUrl;
     }
 }

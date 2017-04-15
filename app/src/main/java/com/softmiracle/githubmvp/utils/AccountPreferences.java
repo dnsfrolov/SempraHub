@@ -8,7 +8,6 @@ import com.orhanobut.hawk.Hawk;
 
 public class AccountPreferences {
 
-    private static final String NAME = "AccountPrefs";
     private static final String TOKEN = "token";
     private static final String USERNAME = "username";
 
@@ -31,7 +30,7 @@ public class AccountPreferences {
         Hawk.put(USERNAME, username);
     }
 
-    public static void clear() {
-        Hawk.clear();
+    public static void removeToken() {
+        Hawk.remove(TOKEN);
     }
 }
