@@ -14,9 +14,9 @@ public class User {
     @SerializedName("name")
     private String name;
     @SerializedName("followers")
-    private int followers;
+    private String followers;
     @SerializedName("following")
-    private int following;
+    private String following;
     @SerializedName("avatar_url")
     private String avatar;
     @SerializedName("email")
@@ -24,15 +24,33 @@ public class User {
     @SerializedName("company")
     private String company;
     @SerializedName("public_repos")
-    private int publicRepos;
+    private String publicRepos;
     @SerializedName("gists_url")
     private String gistsUrl;
     @SerializedName("starred_url")
     private String starredUrl;
     @SerializedName("created_at")
-    private String createdAt;
+    private Date createdAt;
+    @SerializedName("location")
+    private String location;
+    @SerializedName("bio")
+    private String bio;
+    @SerializedName("blog")
+    private String blog;
 
-    public String getCreatedAt() {
+    public String getLocation() {
+        return location;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public String getBlog() {
+        return blog;
+    }
+
+    public Date getCreatedAt() {
         return createdAt;
     }
 
@@ -44,11 +62,11 @@ public class User {
         return name;
     }
 
-    public int getFollowers() {
+    public String getFollowers() {
         return followers;
     }
 
-    public int getFollowing() {
+    public String getFollowing() {
         return following;
     }
 
@@ -64,7 +82,7 @@ public class User {
         return company;
     }
 
-    public int getPublicRepos() {
+    public String getPublicRepos() {
         return publicRepos;
     }
 

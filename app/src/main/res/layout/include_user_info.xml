@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -13,7 +12,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        card_view:cardElevation="4dp">
+        app:cardElevation="4dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -59,7 +58,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="monospace"
-                        android:text="Member since:"
+                        android:text="@string/user_fragment_member_since"
                         android:textSize="14sp" />
 
                     <TextView
@@ -90,7 +89,8 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="8dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:baselineAligned="false">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -105,13 +105,12 @@
                         android:id="@+id/tv_followers_user_info"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0"
                         android:textSize="24sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Followers" />
+                        android:text="@string/user_fragment_followers" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -127,13 +126,12 @@
                         android:id="@+id/tv_following_user_info"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0"
                         android:textSize="24sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Following" />
+                        android:text="@string/user_fragment_following" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -149,35 +147,12 @@
                         android:id="@+id/tv_repos_user_info"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0"
                         android:textSize="24sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Repos" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="?android:attr/selectableItemBackgroundBorderless"
-                    android:clickable="true"
-                    android:gravity="center_horizontal"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/tv_starred_user_info"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:textSize="24sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Starred" />
+                        android:text="@string/user_fragment_repos" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -194,7 +169,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Information"
+                    android:text="@string/user_fragment_information"
                     android:textSize="18sp" />
 
                 <View
@@ -205,17 +180,123 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_location_user_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:layout_marginTop="8dp">
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <net.steamcrafted.materialiconlib.MaterialIconView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:materialIcon="map_marker"
+                    app:materialIconColor="@color/cardview_dark_background" />
+
+                <TextView
+                    android:id="@+id/tv_location_user_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_email_user_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <net.steamcrafted.materialiconlib.MaterialIconView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:materialIcon="email"
+                    app:materialIconColor="@color/cardview_dark_background" />
+
+                <TextView
+                    android:id="@+id/tv_email_user_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_company_user_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <net.steamcrafted.materialiconlib.MaterialIconView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:materialIcon="domain"
+                    app:materialIconColor="@color/cardview_dark_background" />
+
+                <TextView
+                    android:id="@+id/tv_company_user_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_blog_user_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <net.steamcrafted.materialiconlib.MaterialIconView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:materialIcon="newspaper"
+                    app:materialIconColor="@color/cardview_dark_background" />
+
+                <TextView
+                    android:id="@+id/tv_blog_user_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_bio_user_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
 
                 <net.steamcrafted.materialiconlib.MaterialIconView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:materialIcon="account_location"
                     app:materialIconColor="@color/cardview_dark_background" />
+
+                <TextView
+                    android:id="@+id/tv_bio_user_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp"
+                    android:textSize="14sp" />
             </LinearLayout>
 
         </LinearLayout>
