@@ -44,17 +44,17 @@ public class UserFragment extends Fragment implements UserView {
     @BindView(R.id.tv_bio_user_info)
     TextView mBio;
     @BindView(R.id.ll_location_user_info)
-    LinearLayout mLocationView;
+    LinearLayout mLocationLayout;
     @BindView(R.id.ll_email_user_info)
-    LinearLayout mEmailView;
+    LinearLayout mEmailLayout;
     @BindView(R.id.ll_company_user_info)
-    LinearLayout mCompanyView;
+    LinearLayout mCompanyLayout;
     @BindView(R.id.ll_blog_user_info)
-    LinearLayout mBlogView;
+    LinearLayout mBlogLayout;
     @BindView(R.id.ll_bio_user_info)
-    LinearLayout mBioView;
+    LinearLayout mBioLayout;
 
-    private UserPresenter presenter;
+    private UserPresenter mPresenter;
 
     public static UserFragment newInstance() {
         return new UserFragment();
@@ -65,8 +65,8 @@ public class UserFragment extends Fragment implements UserView {
         View root = inflater.inflate(R.layout.fragment_user, container, false);
         ButterKnife.bind(this, root);
 
-        presenter = new UserPresenterImpl(this);
-        presenter.loadUser(AccountPreferences.getUsername());
+        mPresenter = new UserPresenterImpl(this);
+        mPresenter.loadUser(AccountPreferences.getUsername());
         return root;
     }
 
@@ -92,36 +92,42 @@ public class UserFragment extends Fragment implements UserView {
         if (user.getLocation() != null) {
             mLocation.setText(user.getLocation());
         } else {
-            mLocationView.setVisibility(View.GONE);
+            mLocationLayout.setVisibility(View.GONE);
         }
 
         if (user.getEmail() != null) {
             mEmail.setText(user.getEmail());
         } else {
-            mEmailView.setVisibility(View.GONE);
+            mEmailLayout.setVisibility(View.GONE);
         }
 
         if (user.getCompany() != null) {
             mCompany.setText(user.getCompany());
         } else {
-            mCompanyView.setVisibility(View.GONE);
+            mCompanyLayout.setVisibility(View.GONE);
         }
 
         if (user.getBio() != null) {
             mBio.setText(user.getBio());
         } else {
-            mBioView.setVisibility(View.GONE);
+            mBioLayout.setVisibility(View.GONE);
         }
 
         if (user.getBlog() != null) {
             mBlog.setText(user.getBlog());
         } else {
-            mBlogView.setVisibility(View.GONE);
+            mBlogLayout.setVisibility(View.GONE);
         }
     }
 
     @Override
     public void showError(Throwable error) {
 
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mPresenter.detachView();
     }
 }

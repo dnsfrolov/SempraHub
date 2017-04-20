@@ -30,9 +30,9 @@ public class RepoServiceImpl implements RepoService {
     }
 
     @Override
-    public void getRepo(String user, final RepoCallback<List<Repo>> callback) {
+    public void getRepo(String user, int page, final RepoCallback<List<Repo>> callback) {
 
-        mApi.getRepo(user).enqueue(new Callback<List<Repo>>() {
+        mApi.getRepo(user, page).enqueue(new Callback<List<Repo>>() {
             @Override
             public void onResponse(Call<List<Repo>> call, Response<List<Repo>> response) {
                 if (response.isSuccessful() && response.body() != null) {

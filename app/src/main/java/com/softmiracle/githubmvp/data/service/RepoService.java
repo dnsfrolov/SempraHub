@@ -17,5 +17,5 @@ public interface RepoService {
         void onError(Throwable error);
     }
 
-    void getRepo(String user, RepoCallback<List<Repo>> callback);
+    void getRepo(String user, int page, RepoCallback<List<Repo>> callback);
 }

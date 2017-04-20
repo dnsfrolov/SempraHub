@@ -21,12 +21,12 @@ public class RepoPresenterImpl implements RepoPresenter {
     }
 
     @Override
-    public void loadRepo(final String user) {
+    public void loadRepo(final String user, final int page) {
         if (mRepoView != null) {
             mRepoView.showProgressIndicator();
         }
 
-        mRepoService.getRepo(user, new RepoService.RepoCallback<List<Repo>>() {
+        mRepoService.getRepo(user, page, new RepoService.RepoCallback<List<Repo>>() {
             @Override
             public void onSuccess(List<Repo> response) {
                 if (response != null && response.size() > 0) {

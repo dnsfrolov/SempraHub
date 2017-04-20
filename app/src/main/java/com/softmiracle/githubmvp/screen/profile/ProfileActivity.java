@@ -10,7 +10,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.softmiracle.githubmvp.R;
 import com.softmiracle.githubmvp.adapters.ViewPagerAdapter;
-import com.softmiracle.githubmvp.screen.repo.RepositoryFragment;
+import com.softmiracle.githubmvp.screen.repo.RepoListFragment;
 import com.softmiracle.githubmvp.screen.user.UserFragment;
 
 import java.util.ArrayList;
@@ -41,7 +41,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         List<Fragment> fragments = new ArrayList<>();
         fragments.add(UserFragment.newInstance());
-        fragments.add(RepositoryFragment.newInstance());
+        fragments.add(RepoListFragment.newInstance());
 
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager(), fragments);
         mViewPager.setOffscreenPageLimit(fragments.size());

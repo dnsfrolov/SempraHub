@@ -6,7 +6,7 @@ package com.softmiracle.githubmvp.screen.repo;
 
 public interface RepoPresenter {
 
-    void loadRepo(String user);
+    void loadRepo(String user, int page);
 
     void detachView();
 }
