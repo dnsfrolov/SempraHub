@@ -38,6 +38,11 @@ public class RepoListAdapter extends RecyclerView.Adapter {
         mList.addAll(list);
     }
 
+    public void restoreData() {
+        mList = null;
+        mList = new ArrayList<>();
+    }
+
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.include_repo_item_list, parent, false);
@@ -81,7 +86,7 @@ public class RepoListAdapter extends RecyclerView.Adapter {
             final Repo repo = mList.get(adapterPosition);
             mFullName.setText(repo.getFullName());
             mUpdatedAt.setText(DateFormat.getMediumDateFormat(SempraApplication.getInstance()).format(repo.getUpdatedAt()));
-            mDescription.setText("Description: " + repo.getDescription());
+            mDescription.setText(SempraApplication.getInstance().getResources().getString(R.string.description) + repo.getDescription());
             mLanguage.setText(repo.getLanguage());
             mForks.setText(repo.getForksCount());
             mStars.setText(repo.getStargazersCount());

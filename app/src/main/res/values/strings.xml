@@ -12,4 +12,5 @@
     <string name="user_fragment_following">Following</string>
     <string name="user_fragment_followers">Followers</string>
     <string name="user_fragment_member_since">Member since:</string>
+    <string name="description">Description: </string>
 </resources>

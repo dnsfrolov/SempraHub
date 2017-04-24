@@ -11,6 +11,8 @@
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/nav_avatar_view"
         android:layout_width="64dp"
+        android:src="@drawable/github_circle"
+        android:visibility="visible"
         android:layout_height="64dp"
         android:layout_marginBottom="16dp"
         android:layout_marginLeft="16dp"
