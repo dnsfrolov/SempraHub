@@ -101,6 +101,6 @@ public class RepoListFragment extends Fragment implements RepoView, SwipeRefresh
     public void onRefresh() {
         mAdapter.restoreData();
         mAdapter.notifyDataSetChanged();
-        mPresenter.loadRepo("k0shk0sh", PAGE);
+        mPresenter.loadRepo(AccountPreferences.getUsername(), PAGE);
     }
 }
