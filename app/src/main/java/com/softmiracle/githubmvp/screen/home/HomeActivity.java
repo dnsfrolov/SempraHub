@@ -23,16 +23,18 @@ import com.softmiracle.githubmvp.utils.AccountPreferences;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, HomeView {
+public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, HomeContract.HomeView {
 
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
+
     @BindView(R.id.drawer_layout)
     DrawerLayout mDrawerLayout;
+
     @BindView(R.id.home_nav_view)
     NavigationView mNavigationView;
 
-    private HomePresenter mPresenter;
+    private HomeContract.HomePresenter mPresenter;
 
     @SuppressWarnings("deprecation")
     @Override

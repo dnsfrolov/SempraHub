@@ -19,42 +19,57 @@ import com.softmiracle.githubmvp.utils.AccountPreferences;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class UserFragment extends Fragment implements UserView {
+public class UserFragment extends Fragment implements UserContract.UserView {
 
     @BindView(R.id.avatar_user_info)
     ImageView mAvatar;
+
     @BindView(R.id.tv_username_user_info)
     TextView mUsername;
+
     @BindView(R.id.tv_member_user_info)
     TextView mCreatedAt;
+
     @BindView(R.id.tv_followers_user_info)
     TextView mFollowers;
+
     @BindView(R.id.tv_following_user_info)
     TextView mFollowing;
+
     @BindView(R.id.tv_repos_user_info)
     TextView mRepos;
+
     @BindView(R.id.tv_location_user_info)
     TextView mLocation;
+
     @BindView(R.id.tv_email_user_info)
     TextView mEmail;
+
     @BindView(R.id.tv_company_user_info)
     TextView mCompany;
+
     @BindView(R.id.tv_blog_user_info)
     TextView mBlog;
+
     @BindView(R.id.tv_bio_user_info)
     TextView mBio;
+
     @BindView(R.id.ll_location_user_info)
     LinearLayout mLocationLayout;
+
     @BindView(R.id.ll_email_user_info)
     LinearLayout mEmailLayout;
+
     @BindView(R.id.ll_company_user_info)
     LinearLayout mCompanyLayout;
+
     @BindView(R.id.ll_blog_user_info)
     LinearLayout mBlogLayout;
+
     @BindView(R.id.ll_bio_user_info)
     LinearLayout mBioLayout;
 
-    private UserPresenter mPresenter;
+    private UserContract.UserPresenter mPresenter;
 
     public static UserFragment newInstance() {
         return new UserFragment();

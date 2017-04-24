@@ -1,8 +1,9 @@
 package com.softmiracle.githubmvp.screen.repo;
 
-import com.softmiracle.githubmvp.data.service.RepoService;
+import com.softmiracle.githubmvp.data.interactor.InteractorCallback;
+import com.softmiracle.githubmvp.data.interactor.RepoInteractor;
 import com.softmiracle.githubmvp.data.models.Repo;
-import com.softmiracle.githubmvp.data.service.RepoServiceImpl;
+import com.softmiracle.githubmvp.data.interactor.impl.RepoInteractorImpl;
 
 import java.util.List;
 
@@ -10,14 +11,14 @@ import java.util.List;
  * Created by Denys on 01.03.2017.
  */
 
-public class RepoPresenterImpl implements RepoPresenter {
+class RepoPresenterImpl implements RepoContract.RepoPresenter {
 
-    private RepoView mRepoView;
-    private RepoService mRepoService;
+    private RepoContract.RepoView mRepoView;
+    private RepoInteractor mRepoInteractor;
 
-    public RepoPresenterImpl(RepoView mRepoView) {
+    RepoPresenterImpl(RepoContract.RepoView mRepoView) {
         this.mRepoView = mRepoView;
-        this.mRepoService = new RepoServiceImpl();
+        this.mRepoInteractor = new RepoInteractorImpl();
     }
 
     @Override
@@ -26,7 +27,7 @@ public class RepoPresenterImpl implements RepoPresenter {
             mRepoView.showProgressIndicator();
         }
 
-        mRepoService.getRepo(user, page, new RepoService.RepoCallback<List<Repo>>() {
+        mRepoInteractor.getRepo(user, page, new InteractorCallback<List<Repo>>() {
             @Override
             public void onSuccess(List<Repo> response) {
                 if (response != null && response.size() > 0) {

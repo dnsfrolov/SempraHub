@@ -8,9 +8,9 @@ import com.softmiracle.githubmvp.screen.home.HomeActivity;
 import com.softmiracle.githubmvp.screen.login.LoginActivity;
 
 
-public class StartActivity extends AppCompatActivity implements StartView {
+public class StartActivity extends AppCompatActivity implements StartContract.StartView {
 
-    private StartPresenter mPresenter;
+    private StartContract.StartPresenter mPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

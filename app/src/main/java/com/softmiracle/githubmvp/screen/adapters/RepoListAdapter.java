@@ -1,4 +1,4 @@
-package com.softmiracle.githubmvp.adapters;
+package com.softmiracle.githubmvp.screen.adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.text.format.DateFormat;
@@ -45,7 +45,7 @@ public class RepoListAdapter extends RecyclerView.Adapter {
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.include_repo_item_list, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.repos_item_list, parent, false);
         return new RepoListHolder(view);
     }
 
@@ -60,20 +60,26 @@ public class RepoListAdapter extends RecyclerView.Adapter {
         return mList != null ? mList.size() : 0;
     }
 
-    public class RepoListHolder extends RecyclerView.ViewHolder {
+    class RepoListHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.avatar_repo_list)
         MaterialIconView mAvatar;
+
         @BindView(R.id.tv_full_name_repo_list)
         TextView mFullName;
+
         @BindView(R.id.tv_updated_repo_list)
         TextView mUpdatedAt;
+
         @BindView(R.id.tv_description_repo_list)
         TextView mDescription;
+
         @BindView(R.id.tv_language_repo_list)
         TextView mLanguage;
+
         @BindView(R.id.tv_forks_repo_list)
         TextView mForks;
+
         @BindView(R.id.tv_stars_repo_list)
         TextView mStars;
 
@@ -86,10 +92,15 @@ public class RepoListAdapter extends RecyclerView.Adapter {
             final Repo repo = mList.get(adapterPosition);
             mFullName.setText(repo.getFullName());
             mUpdatedAt.setText(DateFormat.getMediumDateFormat(SempraApplication.getInstance()).format(repo.getUpdatedAt()));
-            mDescription.setText(SempraApplication.getInstance().getResources().getString(R.string.description) + repo.getDescription());
             mLanguage.setText(repo.getLanguage());
             mForks.setText(repo.getForksCount());
             mStars.setText(repo.getStargazersCount());
+
+            if (repo.getDescription() != null) {
+                mDescription.setText(SempraApplication.getInstance().getResources().getString(R.string.description) + repo.getDescription());
+            } else {
+                mDescription.setText(SempraApplication.getInstance().getResources().getString(R.string.no_description));
+            }
         }
     }
 }

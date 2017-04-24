@@ -1,21 +1,22 @@
 package com.softmiracle.githubmvp.screen.login;
 
+import com.softmiracle.githubmvp.data.interactor.InteractorCallback;
+import com.softmiracle.githubmvp.data.interactor.LoginInteractor;
 import com.softmiracle.githubmvp.data.models.Authorization;
-import com.softmiracle.githubmvp.data.service.LoginService;
-import com.softmiracle.githubmvp.data.service.LoginServiceImpl;
+import com.softmiracle.githubmvp.data.interactor.impl.LoginInteractorImpl;
 
 /**
  * Created by dnsfrolov on 31.03.2017.
  */
 
-class LoginPresenterImpl implements LoginPresenter {
+class LoginPresenterImpl implements LoginContract.LoginPresenter {
 
-    private LoginView mLoginView;
-    private LoginService mLoginService;
+    private LoginContract.LoginView mLoginView;
+    private LoginInteractor mLoginInteractor;
 
-    LoginPresenterImpl(LoginView mLoginView) {
+    LoginPresenterImpl(LoginContract.LoginView mLoginView) {
         this.mLoginView = mLoginView;
-        this.mLoginService = new LoginServiceImpl();
+        this.mLoginInteractor = new LoginInteractorImpl();
     }
 
     @Override
@@ -24,7 +25,7 @@ class LoginPresenterImpl implements LoginPresenter {
             mLoginView.showProgressIndicator();
         }
 
-        mLoginService.signIn(username, password, new LoginService.LoginCallback<Authorization>() {
+        mLoginInteractor.signIn(username, password, new InteractorCallback<Authorization>() {
             @Override
             public void onSuccess(Authorization response) {
                 if (response != null) {

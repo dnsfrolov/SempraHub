@@ -8,11 +8,11 @@ import com.softmiracle.githubmvp.utils.AccountPreferences;
  * Created by dnsfrolov on 04.04.2017.
  */
 
-public class StartPresenterImpl implements StartPresenter {
+class StartPresenterImpl implements StartContract.StartPresenter {
 
-    private StartView mStartView;
+    private StartContract.StartView mStartView;
 
-    public StartPresenterImpl(StartView startView) {
+    StartPresenterImpl(StartContract.StartView startView) {
         this.mStartView = startView;
     }
 

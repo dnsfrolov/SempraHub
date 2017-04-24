@@ -14,15 +14,15 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class LoginActivity extends AppCompatActivity implements LoginView {
+public class LoginActivity extends AppCompatActivity implements LoginContract.LoginView {
 
     @BindView(R.id.et_username)
     EditText mUsername;
+
     @BindView(R.id.et_password)
     EditText mPassword;
 
-    private LoginPresenter mPresenter;
-
+    private LoginContract.LoginPresenter mPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

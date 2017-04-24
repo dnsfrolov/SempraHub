@@ -1,7 +1,9 @@
-package com.softmiracle.githubmvp.data.service;
+package com.softmiracle.githubmvp.data.interactor.impl;
 
+import com.softmiracle.githubmvp.data.interactor.InteractorCallback;
+import com.softmiracle.githubmvp.data.interactor.RepoInteractor;
 import com.softmiracle.githubmvp.data.models.Repo;
-import com.softmiracle.githubmvp.data.api.GHApi;
+import com.softmiracle.githubmvp.data.service.GitHubService;
 import com.softmiracle.githubmvp.utils.Constants;
 
 import java.util.List;
@@ -16,21 +18,21 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by Denys on 25.02.2017.
  */
 
-public class RepoServiceImpl implements RepoService {
+public class RepoInteractorImpl implements RepoInteractor {
 
-    private GHApi mApi;
+    private GitHubService mApi;
 
-    public RepoServiceImpl() {
+    public RepoInteractorImpl() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        mApi = retrofit.create(GHApi.class);
+        mApi = retrofit.create(GitHubService.class);
     }
 
     @Override
-    public void getRepo(String user, int page, final RepoCallback<List<Repo>> callback) {
+    public void getRepo(String user, int page, final InteractorCallback<List<Repo>> callback) {
 
         mApi.getRepo(user, page).enqueue(new Callback<List<Repo>>() {
             @Override

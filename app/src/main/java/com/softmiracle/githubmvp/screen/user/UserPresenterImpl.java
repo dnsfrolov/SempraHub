@@ -1,21 +1,22 @@
 package com.softmiracle.githubmvp.screen.user;
 
+import com.softmiracle.githubmvp.data.interactor.InteractorCallback;
+import com.softmiracle.githubmvp.data.interactor.UserInteractor;
 import com.softmiracle.githubmvp.data.models.User;
-import com.softmiracle.githubmvp.data.service.UserService;
-import com.softmiracle.githubmvp.data.service.UserServiceImpl;
+import com.softmiracle.githubmvp.data.interactor.impl.UserInteractorImpl;
 
 /**
  * Created by Denys on 26.02.2017.
  */
 
-public class UserPresenterImpl implements UserPresenter {
+class UserPresenterImpl implements UserContract.UserPresenter {
 
-    private UserView mUserView;
-    private UserService mUserService;
+    private UserContract.UserView mUserView;
+    private UserInteractor mUserInteractor;
 
-    public UserPresenterImpl(UserView userView) {
+    UserPresenterImpl(UserContract.UserView userView) {
         this.mUserView = userView;
-        this.mUserService = new UserServiceImpl();
+        this.mUserInteractor = new UserInteractorImpl();
     }
 
     @Override
@@ -24,7 +25,7 @@ public class UserPresenterImpl implements UserPresenter {
             mUserView.showProgressIndicator();
         }
 
-        mUserService.getUserProfile(name, new UserService.UserCallback<User>() {
+        mUserInteractor.getUserProfile(name, new InteractorCallback<User>() {
             @Override
             public void onSuccess(User response) {
                 if (response != null) {

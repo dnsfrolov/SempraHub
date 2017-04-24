@@ -28,11 +28,6 @@
             android:parentActivityName=".screen.home.HomeActivity"/>
 
         <activity
-            android:name=".screen.repo.RepoActivity"
-            android:parentActivityName=".screen.home.HomeActivity"
-            android:theme="@style/SempraTheme_light" />
-
-        <activity
             android:name=".screen.login.LoginActivity"
             android:launchMode="singleTask"
             android:theme="@style/SempraTheme_light" />

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GitHubMVP</string>
+    <string name="app_name">SempraHub</string>
     <string name="error_sign_out">Fail to sign out</string>
     <string name="nav_drawer_open">Navigation drawer open</string>
     <string name="nav_drawer_close">Navigation drawer close</string>
@@ -13,4 +13,6 @@
     <string name="user_fragment_followers">Followers</string>
     <string name="user_fragment_member_since">Member since:</string>
     <string name="description">Description: </string>
+    <string name="no_description">No description for this repository</string>
+    <string name="updated">Updated: </string>
 </resources>

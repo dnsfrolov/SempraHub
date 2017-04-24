@@ -1,21 +1,22 @@
 package com.softmiracle.githubmvp.screen.home;
 
+import com.softmiracle.githubmvp.data.interactor.InteractorCallback;
+import com.softmiracle.githubmvp.data.interactor.UserInteractor;
 import com.softmiracle.githubmvp.data.models.User;
-import com.softmiracle.githubmvp.data.service.UserService;
-import com.softmiracle.githubmvp.data.service.UserServiceImpl;
+import com.softmiracle.githubmvp.data.interactor.impl.UserInteractorImpl;
 
 /**
  * Created by dnsfrolov on 08.04.2017.
  */
 
-public class HomePresenterImpl implements HomePresenter {
+class HomePresenterImpl implements HomeContract.HomePresenter {
 
-    private HomeView mHomeView;
-    private UserService mUserService;
+    private HomeContract.HomeView mHomeView;
+    private UserInteractor mUserInteractor;
 
-    public HomePresenterImpl(HomeView homeView) {
+    HomePresenterImpl(HomeContract.HomeView homeView) {
         this.mHomeView = homeView;
-        this.mUserService = new UserServiceImpl();
+        this.mUserInteractor = new UserInteractorImpl();
     }
 
     @Override
@@ -24,7 +25,7 @@ public class HomePresenterImpl implements HomePresenter {
             mHomeView.showProgressIndicator();
         }
 
-        mUserService.getUserProfile(user, new UserService.UserCallback<User>() {
+        mUserInteractor.getUserProfile(user, new InteractorCallback<User>() {
             @Override
             public void onSuccess(User response) {
                 if (response != null) {

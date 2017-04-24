@@ -9,7 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import com.softmiracle.githubmvp.R;
-import com.softmiracle.githubmvp.adapters.ViewPagerAdapter;
+import com.softmiracle.githubmvp.screen.adapters.ViewPagerAdapter;
 import com.softmiracle.githubmvp.screen.repo.RepoListFragment;
 import com.softmiracle.githubmvp.screen.user.UserFragment;
 
@@ -23,8 +23,10 @@ public class ProfileActivity extends AppCompatActivity {
 
     @BindView(R.id.apptoolbar)
     Toolbar mToolbar;
+
     @BindView(R.id.viewpager)
     ViewPager mViewPager;
+
     @BindView(R.id.tab_layout)
     TabLayout mTabLayout;
 

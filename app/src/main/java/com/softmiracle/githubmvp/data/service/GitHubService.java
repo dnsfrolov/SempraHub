@@ -1,4 +1,4 @@
-package com.softmiracle.githubmvp.data.api;
+package com.softmiracle.githubmvp.data.service;
 
 import com.softmiracle.githubmvp.data.models.CreateAuthorization;
 import com.softmiracle.githubmvp.data.models.Repo;
@@ -18,7 +18,7 @@ import retrofit2.http.Query;
  * Created by Denys on 25.02.2017.
  */
 
-public interface GHApi {
+public interface GitHubService {
 
     @POST("/authorizations")
     Call<Authorization> getAuthorization(@Body CreateAuthorization authorization);
