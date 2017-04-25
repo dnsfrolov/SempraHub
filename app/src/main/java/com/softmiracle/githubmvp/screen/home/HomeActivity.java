@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -18,7 +19,12 @@ import com.bumptech.glide.Glide;
 import com.softmiracle.githubmvp.R;
 import com.softmiracle.githubmvp.data.models.User;
 import com.softmiracle.githubmvp.screen.profile.ProfileActivity;
+import com.softmiracle.githubmvp.screen.repo.RepoListFragment;
+import com.softmiracle.githubmvp.screen.user.UserFragment;
 import com.softmiracle.githubmvp.utils.AccountPreferences;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

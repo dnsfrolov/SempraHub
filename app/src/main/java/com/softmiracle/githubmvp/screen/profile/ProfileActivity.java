@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import com.softmiracle.githubmvp.R;
 import com.softmiracle.githubmvp.screen.adapters.ViewPagerAdapter;
 import com.softmiracle.githubmvp.screen.repo.RepoListFragment;
+import com.softmiracle.githubmvp.screen.starred.userStarred.UserStarredListFragment;
 import com.softmiracle.githubmvp.screen.user.UserFragment;
 
 import java.util.ArrayList;
@@ -44,19 +45,11 @@ public class ProfileActivity extends AppCompatActivity {
         List<Fragment> fragments = new ArrayList<>();
         fragments.add(UserFragment.newInstance());
         fragments.add(RepoListFragment.newInstance());
+        fragments.add(UserStarredListFragment.newInstance());
 
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager(), fragments);
         mViewPager.setOffscreenPageLimit(fragments.size());
         mViewPager.setAdapter(adapter);
         mTabLayout.setupWithViewPager(mViewPager);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        List<Fragment> fragments = getSupportFragmentManager().getFragments();
-        for (Fragment fragment : fragments) {
-            fragment.onActivityResult(requestCode, resultCode, data);
-        }
     }
 }

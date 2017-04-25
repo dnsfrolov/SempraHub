@@ -5,6 +5,7 @@ import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.softmiracle.githubmvp.R;
@@ -83,6 +84,9 @@ public class RepoListAdapter extends RecyclerView.Adapter {
         @BindView(R.id.tv_stars_repo_list)
         TextView mStars;
 
+        @BindView(R.id.ll_lang_repo_list)
+        LinearLayout mLangLayout;
+
         RepoListHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
@@ -92,7 +96,11 @@ public class RepoListAdapter extends RecyclerView.Adapter {
             final Repo repo = mList.get(adapterPosition);
             mFullName.setText(repo.getFullName());
             mUpdatedAt.setText(DateFormat.getMediumDateFormat(SempraApplication.getInstance()).format(repo.getUpdatedAt()));
-            mLanguage.setText(repo.getLanguage());
+            if (repo.getLanguage() !=  null) {
+                mLanguage.setText(repo.getLanguage());
+            } else {
+                mLangLayout.setVisibility(View.GONE);
+            }
             mForks.setText(repo.getForksCount());
             mStars.setText(repo.getStargazersCount());
 

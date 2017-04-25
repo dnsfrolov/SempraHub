@@ -23,9 +23,12 @@ public interface GitHubService {
     @POST("/authorizations")
     Call<Authorization> getAuthorization(@Body CreateAuthorization authorization);
 
+    @GET("/users/{user}")
+    Call<User> getUserProfile(@Path("user") String user);
+
     @GET("/users/{user}/repos?per_page=20")
     Call<List<Repo>> getRepo(@Path("user") String user, @Query("page") int page);
 
-    @GET("/users/{user}")
-    Call<User> getUserProfile(@Path("user") String user);
+    @GET("/users/{user}/starred?per_page=20")
+    Call<List<Repo>> getUserStarred(@Path("user") String user, @Query("page") int page);
 }

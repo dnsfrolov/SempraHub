@@ -14,5 +14,5 @@
     <string name="user_fragment_member_since">Member since:</string>
     <string name="description">Description: </string>
     <string name="no_description">No description for this repository</string>
-    <string name="updated">Updated: </string>
+    <string name="updated">Updated at: </string>
 </resources>
