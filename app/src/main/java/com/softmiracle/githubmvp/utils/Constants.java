@@ -6,8 +6,13 @@ package com.softmiracle.githubmvp.utils;
 
 public class Constants {
 
+    public static final String EXTRA_USERNAME = "user_name";
 
-    public static final String[] FRAGMENT_TITLES = {"User", "Repository", "Starred"};
+    public static final String EXTRA_REPO_ITEM = "repo_item";
+
+    public static final String[] PROFILE_FRAGMENT_TITLES = {"User", "Repository", "Starred"};
+
+    public static final String[] REPOSITORY_FRAGMENT_TITLES = {"Detail"};
 
     public static final int PAGE = 1;
 

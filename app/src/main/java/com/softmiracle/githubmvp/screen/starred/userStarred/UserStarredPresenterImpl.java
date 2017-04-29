@@ -2,7 +2,6 @@ package com.softmiracle.githubmvp.screen.starred.userStarred;
 
 import com.softmiracle.githubmvp.data.interactor.InteractorCallback;
 import com.softmiracle.githubmvp.data.interactor.RepoInteractor;
-import com.softmiracle.githubmvp.data.interactor.UserStarredInteractor;
 import com.softmiracle.githubmvp.data.interactor.impl.RepoInteractorImpl;
 import com.softmiracle.githubmvp.data.models.Repo;
 
@@ -28,7 +27,7 @@ public class UserStarredPresenterImpl implements UserStarredContract.UserStarred
             mView.showProgressIndicator();
         }
 
-        mInteractor.getUserStarred(user, page, new InteractorCallback<List<Repo>>() {
+        mInteractor.getUserStarredList(user, page, new InteractorCallback<List<Repo>>() {
             @Override
             public void onSuccess(List<Repo> response) {
                 if (response != null && response.size() > 0) {

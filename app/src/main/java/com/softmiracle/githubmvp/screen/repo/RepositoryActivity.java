@@ -1,18 +1,18 @@
-package com.softmiracle.githubmvp.screen.profile;
+package com.softmiracle.githubmvp.screen.repo;
 
+import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
 import com.softmiracle.githubmvp.R;
-import com.softmiracle.githubmvp.screen.adapters.ViewPagerAdapter;
-import com.softmiracle.githubmvp.screen.repo.RepoListFragment;
-import com.softmiracle.githubmvp.screen.starred.userStarred.UserStarredListFragment;
-import com.softmiracle.githubmvp.screen.user.UserFragment;
+import com.softmiracle.githubmvp.screen.adapters.RepoViewPagerAdapter;
+import com.softmiracle.githubmvp.screen.repo.repoDetail.RepoDetailFragment;
+import com.softmiracle.githubmvp.utils.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +20,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ProfileActivity extends AppCompatActivity {
+public class RepositoryActivity extends AppCompatActivity {
 
     @BindView(R.id.apptoolbar)
     Toolbar mToolbar;
@@ -31,10 +31,17 @@ public class ProfileActivity extends AppCompatActivity {
     @BindView(R.id.tab_layout)
     TabLayout mTabLayout;
 
+    public static Intent newInstance(Context context, String owner, String repo) {
+        Intent intent = new Intent(context, RepositoryActivity.class);
+        intent.putExtra(Constants.EXTRA_USERNAME, owner);
+        intent.putExtra(Constants.EXTRA_REPO_ITEM, repo);
+        return intent;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_repository);
         ButterKnife.bind(this);
 
         setSupportActionBar(mToolbar);
@@ -43,13 +50,17 @@ public class ProfileActivity extends AppCompatActivity {
         }
 
         List<Fragment> fragments = new ArrayList<>();
-        fragments.add(UserFragment.newInstance());
-        fragments.add(RepoListFragment.newInstance());
-        fragments.add(UserStarredListFragment.newInstance());
+        fragments.add(RepoDetailFragment.newInstance());
 
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager(), fragments);
+        RepoViewPagerAdapter adapter = new RepoViewPagerAdapter(getSupportFragmentManager(), fragments);
         mViewPager.setOffscreenPageLimit(fragments.size());
         mViewPager.setAdapter(adapter);
         mTabLayout.setupWithViewPager(mViewPager);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }

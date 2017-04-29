@@ -1,6 +1,7 @@
 package com.softmiracle.githubmvp.screen.starred.userStarred;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -13,16 +14,19 @@ import android.view.ViewGroup;
 import com.softmiracle.githubmvp.R;
 import com.softmiracle.githubmvp.data.models.Repo;
 import com.softmiracle.githubmvp.screen.adapters.RepoListAdapter;
+import com.softmiracle.githubmvp.screen.repo.RepositoryActivity;
 import com.softmiracle.githubmvp.utils.AccountPreferences;
 import com.softmiracle.githubmvp.utils.Constants;
 import com.softmiracle.githubmvp.utils.EndlessRecyclerViewScrollListener;
+import com.softmiracle.githubmvp.utils.OnItemClickListener;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class UserStarredListFragment extends Fragment implements UserStarredContract.UserStarredView, SwipeRefreshLayout.OnRefreshListener {
+public class UserStarredListFragment extends Fragment implements UserStarredContract.UserStarredView,
+        SwipeRefreshLayout.OnRefreshListener, OnItemClickListener<Repo> {
 
     @BindView(R.id.recycler_repo_list)
     RecyclerView mRecyclerView;
@@ -61,7 +65,7 @@ public class UserStarredListFragment extends Fragment implements UserStarredCont
     }
 
     public void setAdapter() {
-        mAdapter = new RepoListAdapter();
+        mAdapter = new RepoListAdapter(this);
         mRecyclerView.setAdapter(mAdapter);
     }
 
@@ -105,5 +109,10 @@ public class UserStarredListFragment extends Fragment implements UserStarredCont
         mAdapter.restoreData();
         mAdapter.notifyDataSetChanged();
         mPresenter.loadUserStarred(AccountPreferences.getUsername(), Constants.PAGE);
+    }
+
+    @Override
+    public void onItemClick(Repo item) {
+        startActivity(new Intent(RepositoryActivity.newInstance(getContext(), item.getOwner().getLogin(), item.getName())));
     }
 }

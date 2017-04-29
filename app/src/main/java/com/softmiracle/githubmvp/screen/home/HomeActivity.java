@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -18,13 +18,9 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.softmiracle.githubmvp.R;
 import com.softmiracle.githubmvp.data.models.User;
-import com.softmiracle.githubmvp.screen.profile.ProfileActivity;
-import com.softmiracle.githubmvp.screen.repo.RepoListFragment;
+import com.softmiracle.githubmvp.screen.user.ProfileActivity;
 import com.softmiracle.githubmvp.screen.user.UserFragment;
 import com.softmiracle.githubmvp.utils.AccountPreferences;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -49,6 +45,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_home);
         ButterKnife.bind(this);
         setSupportActionBar(mToolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, mDrawerLayout, mToolbar, R.string.nav_drawer_open, R.string.nav_drawer_close);
@@ -72,8 +71,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull final MenuItem item) {
-        final int id = item.getItemId();
-        switch (id) {
+        switch (item.getItemId()) {
             case R.id.nav_my_profile:
                 showUserProfile();
                 break;
@@ -106,9 +104,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         });
     }
 
-    @Override
     public void showUserProfile() {
-
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager()
+                .beginTransaction();
+        fragmentTransaction.replace(R.id.home_coord_layout, UserFragment.newInstance()).commit();
     }
 
     @Override

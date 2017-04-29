@@ -21,20 +21,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name=".screen.profile.ProfileActivity"
-            android:theme="@style/SempraTheme_light"
-            android:parentActivityName=".screen.home.HomeActivity"/>
-
+            android:name=".screen.user.ProfileActivity"
+            android:parentActivityName=".screen.home.HomeActivity"
+            android:theme="@style/SempraTheme_light" />
         <activity
             android:name=".screen.login.LoginActivity"
             android:launchMode="singleTask"
             android:theme="@style/SempraTheme_light" />
-
         <activity
             android:name=".screen.home.HomeActivity"
             android:theme="@style/SempraTheme_light" />
+        <activity android:name=".screen.repo.RepositoryActivity"></activity>
     </application>
 
 </manifest>

@@ -27,7 +27,7 @@ class RepoPresenterImpl implements RepoContract.RepoPresenter {
             mRepoView.showProgressIndicator();
         }
 
-        mRepoInteractor.getRepo(user, page, new InteractorCallback<List<Repo>>() {
+        mRepoInteractor.getRepoList(user, page, new InteractorCallback<List<Repo>>() {
             @Override
             public void onSuccess(List<Repo> response) {
                 if (response != null && response.size() > 0) {

@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface RepoInteractor {
 
-    void getRepo(String user, int page, InteractorCallback<List<Repo>> callback);
+    void getRepoList(String user, int page, InteractorCallback<List<Repo>> callback);
 
-    void getUserStarred(String user, int page, InteractorCallback<List<Repo>> callback);
+    void getUserStarredList(String user, int page, InteractorCallback<List<Repo>> callback);
 }

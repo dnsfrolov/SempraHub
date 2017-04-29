@@ -1,5 +1,6 @@
 package com.softmiracle.githubmvp.screen.repo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -15,13 +16,14 @@ import com.softmiracle.githubmvp.data.models.Repo;
 import com.softmiracle.githubmvp.utils.AccountPreferences;
 import com.softmiracle.githubmvp.utils.Constants;
 import com.softmiracle.githubmvp.utils.EndlessRecyclerViewScrollListener;
+import com.softmiracle.githubmvp.utils.OnItemClickListener;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class RepoListFragment extends Fragment implements RepoContract.RepoView, SwipeRefreshLayout.OnRefreshListener {
+public class RepoListFragment extends Fragment implements RepoContract.RepoView, SwipeRefreshLayout.OnRefreshListener, OnItemClickListener<Repo> {
 
     @BindView(R.id.recycler_repo_list)
     RecyclerView mRecyclerView;
@@ -59,7 +61,7 @@ public class RepoListFragment extends Fragment implements RepoContract.RepoView,
     }
 
     public void setAdapter() {
-        mAdapter = new RepoListAdapter();
+        mAdapter = new RepoListAdapter(this);
         mRecyclerView.setAdapter(mAdapter);
     }
 
@@ -100,5 +102,10 @@ public class RepoListFragment extends Fragment implements RepoContract.RepoView,
         mAdapter.restoreData();
         mAdapter.notifyDataSetChanged();
         mPresenter.loadRepo(AccountPreferences.getUsername(), Constants.PAGE);
+    }
+
+    @Override
+    public void onItemClick(Repo item) {
+        startActivity(new Intent(RepositoryActivity.newInstance(getContext(), item.getOwner().getLogin(), item.getName())));
     }
 }

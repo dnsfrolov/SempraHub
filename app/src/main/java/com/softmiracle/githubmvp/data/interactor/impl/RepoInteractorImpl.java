@@ -32,9 +32,9 @@ public class RepoInteractorImpl implements RepoInteractor {
     }
 
     @Override
-    public void getRepo(String user, int page, final InteractorCallback<List<Repo>> callback) {
+    public void getRepoList(String user, int page, final InteractorCallback<List<Repo>> callback) {
 
-        mApi.getRepo(user, page).enqueue(new Callback<List<Repo>>() {
+        mApi.getRepoList(user, page).enqueue(new Callback<List<Repo>>() {
             @Override
             public void onResponse(Call<List<Repo>> call, Response<List<Repo>> response) {
                 if (response.isSuccessful() && response.body() != null) {
@@ -50,7 +50,7 @@ public class RepoInteractorImpl implements RepoInteractor {
     }
 
     @Override
-    public void getUserStarred(String user, int page, final InteractorCallback<List<Repo>> callback) {
+    public void getUserStarredList(String user, int page, final InteractorCallback<List<Repo>> callback) {
         mApi.getUserStarred(user, page).enqueue(new Callback<List<Repo>>() {
             @Override
             public void onResponse(Call<List<Repo>> call, Response<List<Repo>> response) {

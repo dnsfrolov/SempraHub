@@ -15,4 +15,8 @@
     <string name="description">Description: </string>
     <string name="no_description">No description for this repository</string>
     <string name="updated">Updated at: </string>
+    <string name="watchers">Watchers</string>
+    <string name="issues">Issues</string>
+    <string name="forks">Forks</string>
+    <string name="stars">Stars</string>
 </resources>

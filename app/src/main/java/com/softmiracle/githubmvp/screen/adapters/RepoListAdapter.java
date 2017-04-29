@@ -1,5 +1,6 @@
 package com.softmiracle.githubmvp.screen.adapters;
 
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
@@ -11,7 +12,9 @@ import android.widget.TextView;
 import com.softmiracle.githubmvp.R;
 import com.softmiracle.githubmvp.SempraApplication;
 import com.softmiracle.githubmvp.data.models.Repo;
+import com.softmiracle.githubmvp.utils.OnItemClickListener;
 
+import net.steamcrafted.materialiconlib.MaterialDrawableBuilder;
 import net.steamcrafted.materialiconlib.MaterialIconView;
 
 import java.util.ArrayList;
@@ -27,9 +30,11 @@ import butterknife.ButterKnife;
 public class RepoListAdapter extends RecyclerView.Adapter {
 
     private List<Repo> mList;
+    private OnItemClickListener mListener;
 
-    public RepoListAdapter() {
+    public RepoListAdapter(OnItemClickListener listener) {
         mList = new ArrayList<>();
+        mListener = listener;
     }
 
     public void setData(List<Repo> list) {
@@ -51,9 +56,18 @@ public class RepoListAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
         final RepoListHolder repoListHolder = (RepoListHolder) holder;
         repoListHolder.initData(holder.getAdapterPosition());
+
+        repoListHolder.mCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mListener != null) {
+                    mListener.onItemClick(mList.get(holder.getAdapterPosition()));
+                }
+            }
+        });
     }
 
     @Override
@@ -62,6 +76,9 @@ public class RepoListAdapter extends RecyclerView.Adapter {
     }
 
     class RepoListHolder extends RecyclerView.ViewHolder {
+
+        @BindView(R.id.cardview_repo_list)
+        CardView mCardView;
 
         @BindView(R.id.avatar_repo_list)
         MaterialIconView mAvatar;
@@ -94,9 +111,12 @@ public class RepoListAdapter extends RecyclerView.Adapter {
 
         void initData(int adapterPosition) {
             final Repo repo = mList.get(adapterPosition);
+            if (!repo.isFork()) {
+                mAvatar.setIcon(MaterialDrawableBuilder.IconValue.BOOK);
+            }
             mFullName.setText(repo.getFullName());
             mUpdatedAt.setText(DateFormat.getMediumDateFormat(SempraApplication.getInstance()).format(repo.getUpdatedAt()));
-            if (repo.getLanguage() !=  null) {
+            if (repo.getLanguage() != null) {
                 mLanguage.setText(repo.getLanguage());
             } else {
                 mLangLayout.setVisibility(View.GONE);

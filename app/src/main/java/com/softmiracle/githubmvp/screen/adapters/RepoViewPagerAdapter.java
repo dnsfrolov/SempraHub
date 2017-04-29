@@ -9,16 +9,16 @@ import com.softmiracle.githubmvp.utils.Constants;
 import java.util.List;
 
 /**
- * Created by dnsfrolov on 13.04.2017.
+ * Created by dnsfrolov on 29.04.2017.
  */
 
-public class ViewPagerAdapter extends FragmentPagerAdapter {
+public class RepoViewPagerAdapter extends FragmentPagerAdapter {
 
     private List<Fragment> mFragments;
 
-    public ViewPagerAdapter(FragmentManager fragmentManager, List<Fragment> fragments) {
-        super(fragmentManager);
-        mFragments = fragments;
+    public RepoViewPagerAdapter(FragmentManager fm, List<Fragment> fragments) {
+        super(fm);
+        this.mFragments = fragments;
     }
 
     @Override
@@ -28,11 +28,11 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return Constants.FRAGMENT_TITLES.length;
+        return Constants.REPOSITORY_FRAGMENT_TITLES.length;
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return Constants.FRAGMENT_TITLES[position];
+        return Constants.REPOSITORY_FRAGMENT_TITLES[position];
     }
 }
