@@ -105,9 +105,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void showUserProfile() {
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager()
-                .beginTransaction();
-        fragmentTransaction.replace(R.id.home_coord_layout, UserFragment.newInstance()).commit();
+        Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+        startActivity(intent);
     }
 
     @Override

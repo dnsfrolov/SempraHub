@@ -30,8 +30,10 @@ public class FollowingPresenterImpl implements FollowingContract.FollowingPresen
         mFollowingInteractor.getFollowing(name, page, new InteractorCallback<List<User>>() {
             @Override
             public void onSuccess(List<User> response) {
-                mFollowingView.showFollowing(response);
-                mFollowingView.hideProgressIndicator();
+                if (response != null && response.size() > 0) {
+                    mFollowingView.showFollowing(response);
+                    mFollowingView.hideProgressIndicator();
+                }
             }
 
             @Override

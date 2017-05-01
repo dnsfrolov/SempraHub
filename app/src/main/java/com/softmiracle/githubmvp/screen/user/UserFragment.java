@@ -149,11 +149,6 @@ public class UserFragment extends Fragment implements UserContract.UserView {
         startActivity(FollowingActivity.newIntent(getContext(), getActivity().getIntent().getStringExtra(Constants.EXTRA_USERNAME)));
     }
 
-    @OnClick(R.id.ll_repos_user_info)
-    void onReposClick() {
-
-    }
-
     @Override
     public void showError(Throwable error) {
 
