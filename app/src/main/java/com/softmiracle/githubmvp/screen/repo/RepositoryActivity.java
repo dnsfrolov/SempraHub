@@ -31,7 +31,7 @@ public class RepositoryActivity extends AppCompatActivity {
     @BindView(R.id.tab_layout)
     TabLayout mTabLayout;
 
-    public static Intent newInstance(Context context, String owner, String repo) {
+    public static Intent newIntent(Context context, String owner, String repo) {
         Intent intent = new Intent(context, RepositoryActivity.class);
         intent.putExtra(Constants.EXTRA_USERNAME, owner);
         intent.putExtra(Constants.EXTRA_REPO_ITEM, repo);

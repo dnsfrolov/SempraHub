@@ -32,7 +32,18 @@
         <activity
             android:name=".screen.home.HomeActivity"
             android:theme="@style/SempraTheme_light" />
-        <activity android:name=".screen.repo.RepositoryActivity"></activity>
+        <activity
+            android:name=".screen.repo.RepositoryActivity"
+            android:parentActivityName=".screen.user.ProfileActivity"
+            android:theme="@style/SempraTheme_light" />
+        <activity
+            android:name=".screen.user.followers.FollowersActivity"
+            android:parentActivityName=".screen.user.ProfileActivity"
+            android:theme="@style/SempraTheme_light" />
+        <activity
+            android:name=".screen.user.following.FollowingActivity"
+            android:parentActivityName=".screen.user.ProfileActivity"
+            android:theme="@style/SempraTheme_light" />
     </application>
 
 </manifest>

@@ -30,11 +30,11 @@ import butterknife.ButterKnife;
 public class RepoListAdapter extends RecyclerView.Adapter {
 
     private List<Repo> mList;
-    private OnItemClickListener mListener;
+    private OnItemClickListener<Repo> mListener;
 
-    public RepoListAdapter(OnItemClickListener listener) {
-        mList = new ArrayList<>();
-        mListener = listener;
+    public RepoListAdapter(OnItemClickListener<Repo> listener) {
+        this.mList = new ArrayList<>();
+        this.mListener = listener;
     }
 
     public void setData(List<Repo> list) {

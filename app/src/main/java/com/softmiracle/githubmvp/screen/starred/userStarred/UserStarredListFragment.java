@@ -113,6 +113,6 @@ public class UserStarredListFragment extends Fragment implements UserStarredCont
 
     @Override
     public void onItemClick(Repo item) {
-        startActivity(new Intent(RepositoryActivity.newInstance(getContext(), item.getOwner().getLogin(), item.getName())));
+        startActivity(new Intent(RepositoryActivity.newIntent(getContext(), item.getOwner().getLogin(), item.getName())));
     }
 }

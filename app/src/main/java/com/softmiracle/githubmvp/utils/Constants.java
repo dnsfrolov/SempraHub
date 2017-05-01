@@ -12,7 +12,7 @@ public class Constants {
 
     public static final String[] PROFILE_FRAGMENT_TITLES = {"User", "Repository", "Starred"};
 
-    public static final String[] REPOSITORY_FRAGMENT_TITLES = {"Detail"};
+    public static final String[] REPOSITORY_FRAGMENT_TITLES = {"Details"};
 
     public static final int PAGE = 1;
 

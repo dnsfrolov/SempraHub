@@ -29,7 +29,7 @@ public class RepoListFragment extends Fragment implements RepoContract.RepoView,
     RecyclerView mRecyclerView;
 
     @BindView(R.id.swipe_repo)
-    SwipeRefreshLayout refreshLayout;
+    SwipeRefreshLayout mRefreshLayout;
 
     private RepoListAdapter mAdapter;
     private RepoContract.RepoPresenter mPresenter;
@@ -50,7 +50,7 @@ public class RepoListFragment extends Fragment implements RepoContract.RepoView,
         mPresenter = new RepoPresenterImpl(this);
         mPresenter.loadRepo(AccountPreferences.getUsername(), Constants.PAGE);
 
-        refreshLayout.setOnRefreshListener(this);
+        mRefreshLayout.setOnRefreshListener(this);
         mRecyclerView.addOnScrollListener(new EndlessRecyclerViewScrollListener(mLayoutManager) {
             @Override
             public void onLoadMore(int currentPage, int totalItemCount) {
@@ -82,7 +82,7 @@ public class RepoListFragment extends Fragment implements RepoContract.RepoView,
 
     @Override
     public void showRepo(List<Repo> repoList) {
-        refreshLayout.setRefreshing(false);
+        mRefreshLayout.setRefreshing(false);
         mAdapter.setData(repoList);
         mAdapter.notifyDataSetChanged();
     }
@@ -106,6 +106,6 @@ public class RepoListFragment extends Fragment implements RepoContract.RepoView,
 
     @Override
     public void onItemClick(Repo item) {
-        startActivity(new Intent(RepositoryActivity.newInstance(getContext(), item.getOwner().getLogin(), item.getName())));
+        startActivity(new Intent(RepositoryActivity.newIntent(getContext(), item.getOwner().getLogin(), item.getName())));
     }
 }

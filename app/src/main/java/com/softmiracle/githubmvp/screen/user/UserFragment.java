@@ -1,6 +1,5 @@
 package com.softmiracle.githubmvp.screen.user;
 
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.format.DateFormat;
@@ -14,10 +13,14 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.softmiracle.githubmvp.R;
 import com.softmiracle.githubmvp.data.models.User;
+import com.softmiracle.githubmvp.screen.user.followers.FollowersActivity;
+import com.softmiracle.githubmvp.screen.user.following.FollowingActivity;
 import com.softmiracle.githubmvp.utils.AccountPreferences;
+import com.softmiracle.githubmvp.utils.Constants;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class UserFragment extends Fragment implements UserContract.UserView {
 
@@ -97,6 +100,7 @@ public class UserFragment extends Fragment implements UserContract.UserView {
 
     @Override
     public void showUserProfile(User user) {
+        getActivity().getIntent().putExtra(Constants.EXTRA_USERNAME, user.getLogin());
         Glide.with(this).load(user.getAvatar()).into(mAvatar);
         mUsername.setText(user.getName());
         mCreatedAt.setText(DateFormat.getDateFormat(getActivity()).format(user.getCreatedAt()));
@@ -133,6 +137,21 @@ public class UserFragment extends Fragment implements UserContract.UserView {
         } else {
             mBlogLayout.setVisibility(View.GONE);
         }
+    }
+
+    @OnClick(R.id.ll_followers_user_info)
+    void onFollowersClick() {
+        startActivity(FollowersActivity.newIntent(getContext(), getActivity().getIntent().getStringExtra(Constants.EXTRA_USERNAME)));
+    }
+
+    @OnClick(R.id.ll_following_user_info)
+    void onFollowingClick() {
+        startActivity(FollowingActivity.newIntent(getContext(), getActivity().getIntent().getStringExtra(Constants.EXTRA_USERNAME)));
+    }
+
+    @OnClick(R.id.ll_repos_user_info)
+    void onReposClick() {
+
     }
 
     @Override
