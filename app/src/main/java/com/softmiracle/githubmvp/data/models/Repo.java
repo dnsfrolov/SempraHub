@@ -30,7 +30,7 @@ public class Repo implements Parcelable {
     private boolean isFork;
     @SerializedName("open_issues_count")
     private String openIssuesCount;
-    @SerializedName("watchers_count")
+    @SerializedName("subscribers_count")
     private String watchersCount;
 
     private User owner;
@@ -93,6 +93,7 @@ public class Repo implements Parcelable {
         dest.writeString(this.forksCount);
         dest.writeString(this.stargazersCount);
         dest.writeString(this.openIssuesCount);
+        dest.writeString(this.watchersCount);
         dest.writeLong(this.updatedAt != null ? this.updatedAt.getTime() : -1);
         dest.writeByte(this.isFork ? (byte) 1 : (byte) 0);
     }
@@ -108,6 +109,7 @@ public class Repo implements Parcelable {
         this.forksCount = in.readString();
         this.stargazersCount = in.readString();
         this.openIssuesCount = in.readString();
+        this.watchersCount = in.readString();
         long tmpUpdatedAt = in.readLong();
         this.updatedAt = tmpUpdatedAt == -1 ? null : new Date(tmpUpdatedAt);
         this.isFork = in.readByte() != 0;

@@ -44,7 +44,14 @@
             android:name=".screen.user.following.FollowingActivity"
             android:parentActivityName=".screen.user.ProfileActivity"
             android:theme="@style/SempraTheme_light" />
-        <activity android:name=".screen.starred.repoStarred.RepoStarredActivity"></activity>
+        <activity
+            android:name=".screen.starred.repoStarred.RepoStarredActivity"
+            android:parentActivityName=".screen.repo.RepositoryActivity"
+            android:theme="@style/SempraTheme_light" />
+        <activity
+            android:name=".screen.repo.repoDetail.watchers.WatchersActivity"
+            android:parentActivityName=".screen.repo.RepositoryActivity"
+            android:theme="@style/SempraTheme_light" />
     </application>
 
 </manifest>

@@ -43,4 +43,7 @@ public interface GitHubService {
 
     @GET("/repos/{user}/{repo}/stargazers?per_page=20")
     Call<List<User>> getRepoStarred(@Path("user") String user, @Path("repo") String repo, @Query("page") int page);
+
+    @GET("/repos/{user}/{repo}/subscribers?per_page=20")
+    Call<List<User>> getWatchers(@Path("user") String user, @Path("repo") String repo, @Query("page") int page);
 }

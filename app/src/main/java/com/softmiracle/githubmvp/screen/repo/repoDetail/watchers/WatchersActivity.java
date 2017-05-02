@@ -1,4 +1,4 @@
-package com.softmiracle.githubmvp.screen.user.following;
+package com.softmiracle.githubmvp.screen.repo.repoDetail.watchers;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,7 +11,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.softmiracle.githubmvp.R;
 import com.softmiracle.githubmvp.data.models.User;
-import com.softmiracle.githubmvp.screen.adapters.FollowingAdapter;
+import com.softmiracle.githubmvp.screen.adapters.WatchersAdapter;
 import com.softmiracle.githubmvp.utils.Constants;
 import com.softmiracle.githubmvp.utils.EndlessRecyclerViewScrollListener;
 import com.softmiracle.githubmvp.utils.OnItemClickListener;
@@ -21,31 +21,32 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class FollowingActivity extends AppCompatActivity implements FollowingContract.FollowingView, SwipeRefreshLayout.OnRefreshListener, OnItemClickListener<User> {
+public class WatchersActivity extends AppCompatActivity implements WatchersContract.WatchersView, SwipeRefreshLayout.OnRefreshListener, OnItemClickListener<User> {
 
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
 
-    @BindView(R.id.recycler_following_list)
+    @BindView(R.id.recycler_watchers_list)
     RecyclerView mRecyclerView;
 
-    @BindView(R.id.swipe_following_list)
+    @BindView(R.id.swipe_watchers_list)
     SwipeRefreshLayout mRefreshLayout;
 
-    private FollowingAdapter mAdapter;
-    private FollowingContract.FollowingPresenter mPresenter;
+    private WatchersAdapter mAdapter;
+    private WatchersContract.WatchersPresenter mPresenter;
     private LinearLayoutManager mLayoutManager;
 
-    public static Intent newIntent(Context context, String login) {
-        Intent intent = new Intent(context, FollowingActivity.class);
+    public static Intent newIntent(Context context, String login, String repo) {
+        Intent intent = new Intent(context, WatchersActivity.class);
         intent.putExtra(Constants.EXTRA_USERNAME, login);
+        intent.putExtra(Constants.EXTRA_REPO_ITEM, repo);
         return intent;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_following);
+        setContentView(R.layout.activity_watchers);
         ButterKnife.bind(this);
 
         setSupportActionBar(mToolbar);
@@ -56,20 +57,22 @@ public class FollowingActivity extends AppCompatActivity implements FollowingCon
         setLayoutManager();
         setAdapter();
 
-        mPresenter = new FollowingPresenterImpl(this);
-        mPresenter.loadFollowing(getIntent().getStringExtra(Constants.EXTRA_USERNAME), Constants.PAGE);
+        mPresenter = new WatchersPresenterImpl(this);
+        mPresenter.loadWatchers(getIntent().getStringExtra(Constants.EXTRA_USERNAME),
+                getIntent().getStringExtra(Constants.EXTRA_REPO_ITEM), Constants.PAGE);
 
         mRefreshLayout.setOnRefreshListener(this);
         mRecyclerView.addOnScrollListener(new EndlessRecyclerViewScrollListener(mLayoutManager) {
             @Override
             public void onLoadMore(int currentPage, int totalItemCount) {
-                mPresenter.loadFollowing(getIntent().getStringExtra(Constants.EXTRA_USERNAME), ++currentPage);
+                mPresenter.loadWatchers(getIntent().getStringExtra(Constants.EXTRA_USERNAME),
+                        getIntent().getStringExtra(Constants.EXTRA_REPO_ITEM), ++currentPage);
             }
         });
     }
 
     public void setAdapter() {
-        mAdapter = new FollowingAdapter(this);
+        mAdapter = new WatchersAdapter(this);
         mRecyclerView.setAdapter(mAdapter);
     }
 
@@ -84,7 +87,8 @@ public class FollowingActivity extends AppCompatActivity implements FollowingCon
     public void onRefresh() {
         mAdapter.restoreData();
         mAdapter.notifyDataSetChanged();
-        mPresenter.loadFollowing(getIntent().getStringExtra(Constants.EXTRA_USERNAME), Constants.PAGE);
+        mPresenter.loadWatchers(getIntent().getStringExtra(Constants.EXTRA_USERNAME),
+                getIntent().getStringExtra(Constants.EXTRA_REPO_ITEM), Constants.PAGE);
     }
 
     @Override
@@ -103,7 +107,7 @@ public class FollowingActivity extends AppCompatActivity implements FollowingCon
     }
 
     @Override
-    public void showFollowing(List<User> userList) {
+    public void showWatchers(List<User> userList) {
         mRefreshLayout.setRefreshing(false);
         mAdapter.setData(userList);
         mAdapter.notifyDataSetChanged();
@@ -117,6 +121,6 @@ public class FollowingActivity extends AppCompatActivity implements FollowingCon
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mPresenter.detachView();
+        mRecyclerView = null;
     }
 }
