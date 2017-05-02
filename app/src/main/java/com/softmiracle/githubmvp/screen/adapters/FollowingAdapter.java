@@ -48,7 +48,7 @@ public class FollowingAdapter extends RecyclerView.Adapter {
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.follow_item_list, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.user_item_list, parent, false);
         return new FollowingHolder(view);
     }
 
@@ -74,13 +74,13 @@ public class FollowingAdapter extends RecyclerView.Adapter {
 
     class FollowingHolder extends RecyclerView.ViewHolder {
 
-        @BindView(R.id.cardview_follow_list)
+        @BindView(R.id.cardview_user_list)
         CardView mCardView;
 
-        @BindView(R.id.avatar_follow_list)
+        @BindView(R.id.avatar_user_list)
         CircleImageView mAvatar;
 
-        @BindView(R.id.tv_username_follow_list)
+        @BindView(R.id.tv_username_user_list)
         TextView mUsername;
 
         FollowingHolder(View view) {

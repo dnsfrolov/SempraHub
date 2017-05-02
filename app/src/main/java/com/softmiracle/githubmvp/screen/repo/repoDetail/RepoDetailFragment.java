@@ -15,10 +15,12 @@ import android.widget.TextView;
 import com.softmiracle.githubmvp.R;
 import com.softmiracle.githubmvp.SempraApplication;
 import com.softmiracle.githubmvp.data.models.Repo;
+import com.softmiracle.githubmvp.screen.starred.repoStarred.RepoStarredActivity;
 import com.softmiracle.githubmvp.utils.Constants;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class RepoDetailFragment extends Fragment implements RepoDetailContract.RepoDetailView {
 
@@ -113,6 +115,13 @@ public class RepoDetailFragment extends Fragment implements RepoDetailContract.R
     @Override
     public void showError(Throwable error) {
 
+    }
+
+    @OnClick(R.id.ll_stars_repo_detail)
+    public void onRepoStarredClick() {
+        startActivity(RepoStarredActivity.newIntent(getContext(),
+                getActivity().getIntent().getStringExtra(Constants.EXTRA_USERNAME),
+                getActivity().getIntent().getStringExtra(Constants.EXTRA_REPO_ITEM)));
     }
 
     @Override

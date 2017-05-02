@@ -122,6 +122,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
+                    android:id="@+id/ll_stars_repo_detail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -144,6 +145,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ll_forks_repo_detail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -166,6 +168,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ll_issues_repo_detail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -188,6 +191,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ll_watchers_repo_detail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

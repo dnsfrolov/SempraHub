@@ -141,12 +141,14 @@ public class UserFragment extends Fragment implements UserContract.UserView {
 
     @OnClick(R.id.ll_followers_user_info)
     void onFollowersClick() {
-        startActivity(FollowersActivity.newIntent(getContext(), getActivity().getIntent().getStringExtra(Constants.EXTRA_USERNAME)));
+        startActivity(FollowersActivity.newIntent(getContext(),
+                getActivity().getIntent().getStringExtra(Constants.EXTRA_USERNAME)));
     }
 
     @OnClick(R.id.ll_following_user_info)
     void onFollowingClick() {
-        startActivity(FollowingActivity.newIntent(getContext(), getActivity().getIntent().getStringExtra(Constants.EXTRA_USERNAME)));
+        startActivity(FollowingActivity.newIntent(getContext(),
+                getActivity().getIntent().getStringExtra(Constants.EXTRA_USERNAME)));
     }
 
     @Override

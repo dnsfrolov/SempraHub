@@ -26,10 +26,10 @@ public interface GitHubService {
     @GET("/users/{user}")
     Call<User> getUserProfile(@Path("user") String user);
 
-    @GET("/users/{user}/following")
+    @GET("/users/{user}/following?per_page=20")
     Call<List<User>> getFollowing(@Path("user") String user, @Query("page") int page);
 
-    @GET("/users/{user}/followers")
+    @GET("/users/{user}/followers?per_page=20")
     Call<List<User>> getFollowers(@Path("user") String user, @Query("page") int page);
 
     @GET("/users/{user}/repos?per_page=20")
@@ -40,4 +40,7 @@ public interface GitHubService {
 
     @GET("/users/{user}/starred?per_page=20")
     Call<List<Repo>> getUserStarred(@Path("user") String user, @Query("page") int page);
+
+    @GET("/repos/{user}/{repo}/stargazers?per_page=20")
+    Call<List<User>> getRepoStarred(@Path("user") String user, @Path("repo") String repo, @Query("page") int page);
 }
