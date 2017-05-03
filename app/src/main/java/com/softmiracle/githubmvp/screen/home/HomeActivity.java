@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.softmiracle.githubmvp.R;
+import com.softmiracle.githubmvp.SempraApplication;
 import com.softmiracle.githubmvp.data.models.User;
 import com.softmiracle.githubmvp.screen.user.ProfileActivity;
 import com.softmiracle.githubmvp.screen.user.UserFragment;
@@ -98,15 +99,13 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         avatarView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
-                startActivity(intent);
+                startActivity(ProfileActivity.newIntent(SempraApplication.getInstance(), AccountPreferences.getUsername()));
             }
         });
     }
 
     public void showUserProfile() {
-        Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
-        startActivity(intent);
+        startActivity(ProfileActivity.newIntent(this, AccountPreferences.getUsername()));
     }
 
     @Override

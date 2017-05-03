@@ -1,5 +1,7 @@
 package com.softmiracle.githubmvp.screen.user;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -11,6 +13,7 @@ import com.softmiracle.githubmvp.R;
 import com.softmiracle.githubmvp.screen.adapters.ProfileViewPagerAdapter;
 import com.softmiracle.githubmvp.screen.repo.RepoListFragment;
 import com.softmiracle.githubmvp.screen.starred.userStarred.UserStarredListFragment;
+import com.softmiracle.githubmvp.utils.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +31,12 @@ public class ProfileActivity extends AppCompatActivity {
 
     @BindView(R.id.tab_layout)
     TabLayout mTabLayout;
+
+    public static Intent newIntent(Context context, String login) {
+        Intent intent = new Intent(context, ProfileActivity.class);
+        intent.putExtra(Constants.EXTRA_USERNAME, login);
+        return intent;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 import com.softmiracle.githubmvp.R;
 import com.softmiracle.githubmvp.screen.adapters.RepoListAdapter;
 import com.softmiracle.githubmvp.data.models.Repo;
-import com.softmiracle.githubmvp.utils.AccountPreferences;
 import com.softmiracle.githubmvp.utils.Constants;
 import com.softmiracle.githubmvp.utils.EndlessRecyclerViewScrollListener;
 import com.softmiracle.githubmvp.utils.OnItemClickListener;
@@ -48,13 +47,13 @@ public class RepoListFragment extends Fragment implements RepoContract.RepoView,
         setAdapter();
 
         mPresenter = new RepoPresenterImpl(this);
-        mPresenter.loadRepo(AccountPreferences.getUsername(), Constants.PAGE);
+        mPresenter.loadRepo(getActivity().getIntent().getStringExtra(Constants.EXTRA_USERNAME), Constants.PAGE);
 
         mRefreshLayout.setOnRefreshListener(this);
         mRecyclerView.addOnScrollListener(new EndlessRecyclerViewScrollListener(mLayoutManager) {
             @Override
             public void onLoadMore(int currentPage, int totalItemCount) {
-                mPresenter.loadRepo(AccountPreferences.getUsername(), ++currentPage);
+                mPresenter.loadRepo(getActivity().getIntent().getStringExtra(Constants.EXTRA_USERNAME), ++currentPage);
             }
         });
         return root;
@@ -101,7 +100,7 @@ public class RepoListFragment extends Fragment implements RepoContract.RepoView,
     public void onRefresh() {
         mAdapter.restoreData();
         mAdapter.notifyDataSetChanged();
-        mPresenter.loadRepo(AccountPreferences.getUsername(), Constants.PAGE);
+        mPresenter.loadRepo(getActivity().getIntent().getStringExtra(Constants.EXTRA_USERNAME), Constants.PAGE);
     }
 
     @Override

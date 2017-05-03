@@ -1,10 +1,7 @@
 package com.softmiracle.githubmvp.screen.repo.repoDetail;
 
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +12,7 @@ import android.widget.TextView;
 import com.softmiracle.githubmvp.R;
 import com.softmiracle.githubmvp.SempraApplication;
 import com.softmiracle.githubmvp.data.models.Repo;
+import com.softmiracle.githubmvp.screen.repo.repoDetail.forks.ForksActivity;
 import com.softmiracle.githubmvp.screen.repo.repoDetail.watchers.WatchersActivity;
 import com.softmiracle.githubmvp.screen.starred.repoStarred.RepoStarredActivity;
 import com.softmiracle.githubmvp.utils.Constants;
@@ -65,21 +63,9 @@ public class RepoDetailFragment extends Fragment implements RepoDetailContract.R
         ButterKnife.bind(this, root);
 
         mPresenter = new RepoDetailPresenterImpl(this);
-        loadData();
-
+        mPresenter.loadRepoDetail(getActivity().getIntent().getStringExtra(Constants.EXTRA_USERNAME),
+                getActivity().getIntent().getStringExtra(Constants.EXTRA_REPO_ITEM));
         return root;
-    }
-
-    public void loadData() {
-        Intent intent = getActivity().getIntent();
-        if (intent != null) {
-            String mOwner = intent.getStringExtra(Constants.EXTRA_USERNAME);
-            String mRepoName = intent.getStringExtra(Constants.EXTRA_REPO_ITEM);
-
-            if (!TextUtils.isEmpty(mOwner) && !TextUtils.isEmpty(mRepoName)) {
-                mPresenter.loadRepoDetail(mOwner, mRepoName);
-            }
-        }
     }
 
     @Override
@@ -121,6 +107,13 @@ public class RepoDetailFragment extends Fragment implements RepoDetailContract.R
     @OnClick(R.id.ll_stars_repo_detail)
     public void onRepoStarredClick() {
         startActivity(RepoStarredActivity.newIntent(getContext(),
+                getActivity().getIntent().getStringExtra(Constants.EXTRA_USERNAME),
+                getActivity().getIntent().getStringExtra(Constants.EXTRA_REPO_ITEM)));
+    }
+
+    @OnClick(R.id.ll_forks_repo_detail)
+    public void onForksClick() {
+        startActivity(ForksActivity.newIntent(getContext(),
                 getActivity().getIntent().getStringExtra(Constants.EXTRA_USERNAME),
                 getActivity().getIntent().getStringExtra(Constants.EXTRA_REPO_ITEM)));
     }

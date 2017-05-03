@@ -52,6 +52,9 @@
             android:name=".screen.repo.repoDetail.watchers.WatchersActivity"
             android:parentActivityName=".screen.repo.RepositoryActivity"
             android:theme="@style/SempraTheme_light" />
+        <activity
+            android:name=".screen.repo.repoDetail.forks.ForksActivity"
+            android:theme="@style/SempraTheme_light" />
     </application>
 
 </manifest>

@@ -84,7 +84,7 @@ public class UserFragment extends Fragment implements UserContract.UserView {
         ButterKnife.bind(this, root);
 
         mPresenter = new UserPresenterImpl(this);
-        mPresenter.loadUser(AccountPreferences.getUsername());
+        mPresenter.loadUser(getActivity().getIntent().getStringExtra(Constants.EXTRA_USERNAME));
         return root;
     }
 
