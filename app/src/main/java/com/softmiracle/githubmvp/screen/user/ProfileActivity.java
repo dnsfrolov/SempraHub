@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 
 import com.softmiracle.githubmvp.R;
 import com.softmiracle.githubmvp.screen.adapters.ProfileViewPagerAdapter;
@@ -58,5 +59,14 @@ public class ProfileActivity extends AppCompatActivity {
         mViewPager.setOffscreenPageLimit(fragments.size());
         mViewPager.setAdapter(adapter);
         mTabLayout.setupWithViewPager(mViewPager);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
