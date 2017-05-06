@@ -11,8 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.softmiracle.githubmvp.R;
-import com.softmiracle.githubmvp.screen.adapters.RepoListAdapter;
 import com.softmiracle.githubmvp.data.models.Repo;
+import com.softmiracle.githubmvp.screen.adapters.RepoListAdapter;
 import com.softmiracle.githubmvp.utils.Constants;
 import com.softmiracle.githubmvp.utils.EndlessRecyclerViewScrollListener;
 import com.softmiracle.githubmvp.utils.OnItemClickListener;

@@ -15,7 +15,6 @@ import com.softmiracle.githubmvp.R;
 import com.softmiracle.githubmvp.data.models.User;
 import com.softmiracle.githubmvp.screen.user.followers.FollowersActivity;
 import com.softmiracle.githubmvp.screen.user.following.FollowingActivity;
-import com.softmiracle.githubmvp.utils.AccountPreferences;
 import com.softmiracle.githubmvp.utils.Constants;
 
 import butterknife.BindView;
@@ -132,7 +131,7 @@ public class UserFragment extends Fragment implements UserContract.UserView {
             mBioLayout.setVisibility(View.GONE);
         }
 
-        if (user.getBlog() != null) {
+        if (user.getBlog() != null && !user.getBlog().isEmpty()) {
             mBlog.setText(user.getBlog());
         } else {
             mBlogLayout.setVisibility(View.GONE);

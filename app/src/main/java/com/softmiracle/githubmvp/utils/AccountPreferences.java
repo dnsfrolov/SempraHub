@@ -1,5 +1,7 @@
 package com.softmiracle.githubmvp.utils;
 
+import android.support.annotation.NonNull;
+
 import com.orhanobut.hawk.Hawk;
 
 /**
@@ -8,29 +10,28 @@ import com.orhanobut.hawk.Hawk;
 
 public class AccountPreferences {
 
-    private static final String TOKEN = "token";
-    private static final String USERNAME = "username";
-
     public AccountPreferences() {
     }
 
+    @NonNull
     public static String getToken() {
-        return Hawk.get(TOKEN, "");
+        return Hawk.get(Constants.TOKEN, "");
     }
 
-    public static void setToken(String token) {
-        Hawk.put(TOKEN, token);
+    public static void setToken(@NonNull String token) {
+        Hawk.put(Constants.TOKEN, token);
     }
 
+    @NonNull
     public static String getUsername() {
-        return Hawk.get(USERNAME, "");
+        return Hawk.get(Constants.USERNAME, "");
     }
 
-    public static void setUsername(String username) {
-        Hawk.put(USERNAME, username);
+    public static void setUsername(@NonNull String username) {
+        Hawk.put(Constants.USERNAME, username);
     }
 
     public static void removeToken() {
-        Hawk.remove(TOKEN);
+        Hawk.remove(Constants.TOKEN);
     }
 }

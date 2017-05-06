@@ -2,8 +2,8 @@ package com.softmiracle.githubmvp.screen.login;
 
 import com.softmiracle.githubmvp.data.interactor.InteractorCallback;
 import com.softmiracle.githubmvp.data.interactor.LoginInteractor;
-import com.softmiracle.githubmvp.data.models.Authorization;
 import com.softmiracle.githubmvp.data.interactor.impl.LoginInteractorImpl;
+import com.softmiracle.githubmvp.data.models.Authorization;
 
 /**
  * Created by dnsfrolov on 31.03.2017.

@@ -1,10 +1,9 @@
 package com.softmiracle.githubmvp.screen.home;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -18,9 +17,10 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.softmiracle.githubmvp.R;
 import com.softmiracle.githubmvp.SempraApplication;
+import com.softmiracle.githubmvp.data.api.GithubServiceGenerator;
 import com.softmiracle.githubmvp.data.models.User;
+import com.softmiracle.githubmvp.screen.start.StartActivity;
 import com.softmiracle.githubmvp.screen.user.ProfileActivity;
-import com.softmiracle.githubmvp.screen.user.UserFragment;
 import com.softmiracle.githubmvp.utils.AccountPreferences;
 
 import butterknife.BindView;
@@ -80,7 +80,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_sign_out:
                 AccountPreferences.removeToken();
-                finish();
+                GithubServiceGenerator.recreate();
+                startActivity(new Intent(this, StartActivity.class));
                 break;
         }
 

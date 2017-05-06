@@ -6,6 +6,10 @@ package com.softmiracle.githubmvp.utils;
 
 public class Constants {
 
+    public static final String TOKEN = "token";
+
+    public static final String USERNAME = "username";
+
     public static final String EXTRA_USERNAME = "user_name";
 
     public static final String EXTRA_REPO_ITEM = "repo_item";
@@ -17,5 +21,7 @@ public class Constants {
     public static final int PAGE = 1;
 
     public static final String BASE_URL = "https://api.github.com";
+
+    public static final String BASIC_AUTH = "Basic ";
 
 }

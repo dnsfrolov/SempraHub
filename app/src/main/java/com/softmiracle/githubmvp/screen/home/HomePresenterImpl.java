@@ -2,8 +2,8 @@ package com.softmiracle.githubmvp.screen.home;
 
 import com.softmiracle.githubmvp.data.interactor.InteractorCallback;
 import com.softmiracle.githubmvp.data.interactor.UserInteractor;
-import com.softmiracle.githubmvp.data.models.User;
 import com.softmiracle.githubmvp.data.interactor.impl.UserInteractorImpl;
+import com.softmiracle.githubmvp.data.models.User;
 
 /**
  * Created by dnsfrolov on 08.04.2017.

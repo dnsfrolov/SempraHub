@@ -13,16 +13,13 @@ public class CreateAuthorization {
     @SerializedName("client_secret")
     private String clientSecret = "0779a77c13a86699890f2edf6fd8cb50d5f96d44";
     @SerializedName("scopes")
-    private String[] scopes = {"user", "repo", "gist", "notifications", "repo:status"};
+    private String[] scopes;
     @SerializedName("note")
-    private String note = "Sempra for GitHub";
+    private String note;
     @SerializedName("note_url")
     private String noteUrl;
     @SerializedName("fingerprint")
     private String fingerprint;
-
-    public CreateAuthorization() {
-    }
 
     public String getClientId() {
         return clientId;

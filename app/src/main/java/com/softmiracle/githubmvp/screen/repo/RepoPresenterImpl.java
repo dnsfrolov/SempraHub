@@ -2,8 +2,8 @@ package com.softmiracle.githubmvp.screen.repo;
 
 import com.softmiracle.githubmvp.data.interactor.InteractorCallback;
 import com.softmiracle.githubmvp.data.interactor.RepoInteractor;
-import com.softmiracle.githubmvp.data.models.Repo;
 import com.softmiracle.githubmvp.data.interactor.impl.RepoInteractorImpl;
+import com.softmiracle.githubmvp.data.models.Repo;
 
 import java.util.List;
 

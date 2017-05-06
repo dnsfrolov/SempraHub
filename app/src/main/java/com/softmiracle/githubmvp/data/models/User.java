@@ -38,6 +38,62 @@ public class User {
     @SerializedName("blog")
     private String blog;
 
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setFollowers(String followers) {
+        this.followers = followers;
+    }
+
+    public void setFollowing(String following) {
+        this.following = following;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
+    public void setPublicRepos(String publicRepos) {
+        this.publicRepos = publicRepos;
+    }
+
+    public void setGistsUrl(String gistsUrl) {
+        this.gistsUrl = gistsUrl;
+    }
+
+    public void setStarredUrl(String starredUrl) {
+        this.starredUrl = starredUrl;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public void setBlog(String blog) {
+        this.blog = blog;
+    }
+
     public String getLocation() {
         return location;
     }

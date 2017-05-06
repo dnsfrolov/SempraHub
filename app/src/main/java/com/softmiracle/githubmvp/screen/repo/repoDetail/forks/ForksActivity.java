@@ -2,9 +2,9 @@ package com.softmiracle.githubmvp.screen.repo.repoDetail.forks;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -12,7 +12,6 @@ import android.view.MenuItem;
 
 import com.softmiracle.githubmvp.R;
 import com.softmiracle.githubmvp.data.models.Repo;
-import com.softmiracle.githubmvp.data.models.User;
 import com.softmiracle.githubmvp.screen.adapters.ForksAdapter;
 import com.softmiracle.githubmvp.utils.Constants;
 import com.softmiracle.githubmvp.utils.EndlessRecyclerViewScrollListener;

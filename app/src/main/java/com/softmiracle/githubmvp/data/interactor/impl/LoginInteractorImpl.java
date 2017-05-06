@@ -1,28 +1,16 @@
 package com.softmiracle.githubmvp.data.interactor.impl;
 
-import android.support.annotation.NonNull;
-import android.util.Base64;
-
+import com.softmiracle.githubmvp.data.api.GithubServiceGenerator;
 import com.softmiracle.githubmvp.data.interactor.InteractorCallback;
 import com.softmiracle.githubmvp.data.interactor.LoginInteractor;
 import com.softmiracle.githubmvp.data.models.Authorization;
 import com.softmiracle.githubmvp.data.models.CreateAuthorization;
-import com.softmiracle.githubmvp.data.service.GitHubService;
 import com.softmiracle.githubmvp.utils.AccountPreferences;
-import com.softmiracle.githubmvp.utils.Constants;
+import com.softmiracle.githubmvp.utils.AuthorizationUtils;
 
-import java.io.IOException;
-import java.util.concurrent.TimeUnit;
-
-import okhttp3.Interceptor;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by dnsfrolov on 12.03.2017.
@@ -30,72 +18,30 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginInteractorImpl implements LoginInteractor {
 
-    private GitHubService mApi;
-    private static String userName;
-    private static String password;
+    @Override
+    public void signIn(final String login, String password, final InteractorCallback<Authorization> callback) {
 
-    private void setUserInfo(String userName, String password) {
-        LoginInteractorImpl.userName = userName;
-        LoginInteractorImpl.password = password;
-    }
+        String authorizationStr = AuthorizationUtils.createAuth(login, password);
+        CreateAuthorization createAuthorization = new CreateAuthorization();
 
+        GithubServiceGenerator.getGithubService().getAuthorization(authorizationStr, createAuthorization)
+                .enqueue(new Callback<Authorization>() {
+                    @Override
+                    public void onResponse(Call<Authorization> call, Response<Authorization> response) {
 
-    public LoginInteractorImpl() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Constants.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .client(getOkHttpClient())
-                .build();
+                        if (response.isSuccessful() && response.body() != null) {
+                            callback.onSuccess(response.body());
 
-        mApi = retrofit.create(GitHubService.class);
-    }
-
-    @NonNull
-    private static OkHttpClient getOkHttpClient() {
-        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
-        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-
-        OkHttpClient.Builder okHttpBuilder = new OkHttpClient.Builder();
-        okHttpBuilder.addInterceptor(loggingInterceptor)
-                .retryOnConnectionFailure(true)
-                .connectTimeout(15, TimeUnit.SECONDS)
-                .addNetworkInterceptor(new Interceptor() {
+                            AccountPreferences.setToken(response.body().getToken());
+                            AccountPreferences.setUsername(login);
+                            GithubServiceGenerator.recreate();
+                        }
+                    }
 
                     @Override
-                    public okhttp3.Response intercept(Chain chain) throws IOException {
-                        String userCredentials = userName + ":" + password;
-                        String basicAuth = "Basic " + new String(Base64.encode(userCredentials.getBytes(), Base64.DEFAULT));
-                        Request original = chain.request();
-                        Request.Builder requestBuilder = original.newBuilder()
-                                .addHeader("User-Agent", "Sempra for GitHub")
-                                .addHeader("Accept", "application/vnd.github.v3+json")
-                                .addHeader("Authorization", basicAuth.trim());
-                        Request request = requestBuilder.build();
-
-                        return chain.proceed(request);
+                    public void onFailure(Call<Authorization> call, Throwable t) {
+                        callback.onError(t);
                     }
                 });
-        return okHttpBuilder.build();
-    }
-
-    @Override
-    public void signIn(final String username, String password, final InteractorCallback<Authorization> callback) {
-        final CreateAuthorization createAuthorization = new CreateAuthorization();
-        setUserInfo(username, password);
-        mApi.getAuthorization(createAuthorization).enqueue(new Callback<Authorization>() {
-            @Override
-            public void onResponse(Call<Authorization> call, Response<Authorization> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    callback.onSuccess(response.body());
-                    AccountPreferences.setToken(response.body().getToken());
-                    AccountPreferences.setUsername(username);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Authorization> call, Throwable t) {
-                callback.onError(t);
-            }
-        });
     }
 }

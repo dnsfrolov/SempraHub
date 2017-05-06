@@ -1,15 +1,18 @@
 package com.softmiracle.githubmvp.data.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
 /**
  * Created by dnsfrolov on 14.03.2017.
  */
 
-public class Authorization {
+public class Authorization implements Parcelable {
 
     @SerializedName("id")
-    private String id;
+    private int id;
     @SerializedName("token")
     private String token;
     @SerializedName("hashed_token")
@@ -29,7 +32,7 @@ public class Authorization {
     @SerializedName("scopes")
     private String[] scopes;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
@@ -68,4 +71,51 @@ public class Authorization {
     public String[] getScopes() {
         return scopes;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.id);
+        dest.writeString(this.token);
+        dest.writeString(this.hashedToken);
+        dest.writeString(this.tokenLastEight);
+        dest.writeString(this.note);
+        dest.writeString(this.noteUrl);
+        dest.writeString(this.createdAt);
+        dest.writeString(this.updatedAt);
+        dest.writeString(this.fingerprint);
+        dest.writeStringArray(this.scopes);
+    }
+
+    public Authorization() {
+    }
+
+    protected Authorization(Parcel in) {
+        this.id = in.readInt();
+        this.token = in.readString();
+        this.hashedToken = in.readString();
+        this.tokenLastEight = in.readString();
+        this.note = in.readString();
+        this.noteUrl = in.readString();
+        this.createdAt = in.readString();
+        this.updatedAt = in.readString();
+        this.fingerprint = in.readString();
+        this.scopes = in.createStringArray();
+    }
+
+    public static final Parcelable.Creator<Authorization> CREATOR = new Parcelable.Creator<Authorization>() {
+        @Override
+        public Authorization createFromParcel(Parcel source) {
+            return new Authorization(source);
+        }
+
+        @Override
+        public Authorization[] newArray(int size) {
+            return new Authorization[size];
+        }
+    };
 }

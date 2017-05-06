@@ -35,6 +35,50 @@ public class Repo implements Parcelable {
 
     private User owner;
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    public void setForksCount(String forksCount) {
+        this.forksCount = forksCount;
+    }
+
+    public void setStargazersCount(String stargazersCount) {
+        this.stargazersCount = stargazersCount;
+    }
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public void setFork(boolean fork) {
+        isFork = fork;
+    }
+
+    public void setOpenIssuesCount(String openIssuesCount) {
+        this.openIssuesCount = openIssuesCount;
+    }
+
+    public void setWatchersCount(String watchersCount) {
+        this.watchersCount = watchersCount;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
+
     public User getOwner() {
         return owner;
     }
@@ -79,6 +123,9 @@ public class Repo implements Parcelable {
         return language;
     }
 
+    public Repo() {
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -92,13 +139,10 @@ public class Repo implements Parcelable {
         dest.writeString(this.language);
         dest.writeString(this.forksCount);
         dest.writeString(this.stargazersCount);
-        dest.writeString(this.openIssuesCount);
-        dest.writeString(this.watchersCount);
         dest.writeLong(this.updatedAt != null ? this.updatedAt.getTime() : -1);
         dest.writeByte(this.isFork ? (byte) 1 : (byte) 0);
-    }
-
-    public Repo() {
+        dest.writeString(this.openIssuesCount);
+        dest.writeString(this.watchersCount);
     }
 
     protected Repo(Parcel in) {
@@ -108,14 +152,15 @@ public class Repo implements Parcelable {
         this.language = in.readString();
         this.forksCount = in.readString();
         this.stargazersCount = in.readString();
-        this.openIssuesCount = in.readString();
-        this.watchersCount = in.readString();
         long tmpUpdatedAt = in.readLong();
         this.updatedAt = tmpUpdatedAt == -1 ? null : new Date(tmpUpdatedAt);
         this.isFork = in.readByte() != 0;
+        this.openIssuesCount = in.readString();
+        this.watchersCount = in.readString();
     }
 
-    public static final Parcelable.Creator<Repo> CREATOR = new Parcelable.Creator<Repo>() {
+
+    public static final Creator<Repo> CREATOR = new Creator<Repo>() {
         @Override
         public Repo createFromParcel(Parcel source) {
             return new Repo(source);
