@@ -1,6 +1,5 @@
 package com.softmiracle.githubmvp.screen.starred.userStarred;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,7 +14,6 @@ import com.softmiracle.githubmvp.R;
 import com.softmiracle.githubmvp.data.models.Repo;
 import com.softmiracle.githubmvp.screen.adapters.RepoListAdapter;
 import com.softmiracle.githubmvp.screen.repo.RepositoryActivity;
-import com.softmiracle.githubmvp.utils.AccountPreferences;
 import com.softmiracle.githubmvp.utils.Constants;
 import com.softmiracle.githubmvp.utils.EndlessRecyclerViewScrollListener;
 import com.softmiracle.githubmvp.utils.OnItemClickListener;
@@ -52,13 +50,13 @@ public class UserStarredListFragment extends Fragment implements UserStarredCont
         setAdapter();
 
         mPresenter = new UserStarredPresenterImpl(this);
-        mPresenter.loadUserStarred(AccountPreferences.getUsername(), Constants.PAGE);
+        mPresenter.loadUserStarred(getActivity().getIntent().getStringExtra(Constants.EXTRA_USERNAME), Constants.PAGE);
 
         refreshLayout.setOnRefreshListener(this);
         mRecyclerView.addOnScrollListener(new EndlessRecyclerViewScrollListener(mLayoutManager) {
             @Override
             public void onLoadMore(int currentPage, int totalItemCount) {
-                mPresenter.loadUserStarred(AccountPreferences.getUsername(), ++currentPage);
+                mPresenter.loadUserStarred(getActivity().getIntent().getStringExtra(Constants.EXTRA_USERNAME), ++currentPage);
             }
         });
         return root;
@@ -108,7 +106,7 @@ public class UserStarredListFragment extends Fragment implements UserStarredCont
     public void onRefresh() {
         mAdapter.restoreData();
         mAdapter.notifyDataSetChanged();
-        mPresenter.loadUserStarred(AccountPreferences.getUsername(), Constants.PAGE);
+        mPresenter.loadUserStarred(getActivity().getIntent().getStringExtra(Constants.EXTRA_USERNAME), Constants.PAGE);
     }
 
     @Override

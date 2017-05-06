@@ -11,8 +11,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.softmiracle.githubmvp.R;
+import com.softmiracle.githubmvp.SempraApplication;
 import com.softmiracle.githubmvp.data.models.User;
 import com.softmiracle.githubmvp.screen.adapters.WatchersAdapter;
+import com.softmiracle.githubmvp.screen.user.ProfileActivity;
 import com.softmiracle.githubmvp.utils.Constants;
 import com.softmiracle.githubmvp.utils.EndlessRecyclerViewScrollListener;
 import com.softmiracle.githubmvp.utils.OnItemClickListener;
@@ -94,7 +96,7 @@ public class WatchersActivity extends AppCompatActivity implements WatchersContr
 
     @Override
     public void onItemClick(User item) {
-
+        startActivity(new Intent(ProfileActivity.newIntent(SempraApplication.getInstance(), item.getLogin())));
     }
 
     @Override

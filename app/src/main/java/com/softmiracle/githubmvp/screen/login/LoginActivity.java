@@ -44,7 +44,6 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Lo
 
     @Override
     public void loginSuccess() {
-        Toast.makeText(this, "success", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, HomeActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);

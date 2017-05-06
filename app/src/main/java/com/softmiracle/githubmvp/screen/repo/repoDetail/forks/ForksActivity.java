@@ -11,8 +11,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.softmiracle.githubmvp.R;
+import com.softmiracle.githubmvp.SempraApplication;
 import com.softmiracle.githubmvp.data.models.Repo;
 import com.softmiracle.githubmvp.screen.adapters.ForksAdapter;
+import com.softmiracle.githubmvp.screen.user.ProfileActivity;
 import com.softmiracle.githubmvp.utils.Constants;
 import com.softmiracle.githubmvp.utils.EndlessRecyclerViewScrollListener;
 import com.softmiracle.githubmvp.utils.OnItemClickListener;
@@ -94,7 +96,7 @@ public class ForksActivity extends AppCompatActivity implements ForksContract.Fo
 
     @Override
     public void onItemClick(Repo item) {
-
+        startActivity(new Intent(ProfileActivity.newIntent(SempraApplication.getInstance(), item.getOwner().getLogin())));
     }
 
     @Override
