@@ -9,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.ProgressBar;
 
 import com.softmiracle.githubmvp.R;
 import com.softmiracle.githubmvp.data.models.User;

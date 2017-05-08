@@ -2,11 +2,13 @@ package com.softmiracle.githubmvp.screen.repo.repoDetail;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.NestedScrollView;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.softmiracle.githubmvp.R;
@@ -22,6 +24,12 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class RepoDetailFragment extends Fragment implements RepoDetailContract.RepoDetailView {
+
+    @BindView(R.id.progress_bar)
+    ProgressBar mProgressBar;
+
+    @BindView(R.id.nestedScroll)
+    NestedScrollView mNestedScroll;
 
     @BindView(R.id.tv_reponame_repo_detail)
     TextView mRepoName;
@@ -70,12 +78,14 @@ public class RepoDetailFragment extends Fragment implements RepoDetailContract.R
 
     @Override
     public void showProgressIndicator() {
-
+        mProgressBar.setVisibility(View.VISIBLE);
+        mNestedScroll.setVisibility(View.GONE);
     }
 
     @Override
     public void hideProgressIndicator() {
-
+        mProgressBar.setVisibility(View.GONE);
+        mNestedScroll.setVisibility(View.VISIBLE);
     }
 
     @Override

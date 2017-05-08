@@ -2,12 +2,14 @@ package com.softmiracle.githubmvp.screen.user;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.NestedScrollView;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -22,6 +24,12 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class UserFragment extends Fragment implements UserContract.UserView {
+
+    @BindView(R.id.progress_bar)
+    ProgressBar mProgressBar;
+
+    @BindView(R.id.nestedScroll)
+    NestedScrollView mNestedScroll;
 
     @BindView(R.id.avatar_user_info)
     ImageView mAvatar;
@@ -92,12 +100,14 @@ public class UserFragment extends Fragment implements UserContract.UserView {
 
     @Override
     public void showProgressIndicator() {
-
+        mProgressBar.setVisibility(View.VISIBLE);
+        mNestedScroll.setVisibility(View.GONE);
     }
 
     @Override
     public void hideProgressIndicator() {
-
+        mProgressBar.setVisibility(View.GONE);
+        mNestedScroll.setVisibility(View.VISIBLE);
     }
 
     @Override

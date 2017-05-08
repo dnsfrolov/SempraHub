@@ -5,11 +5,20 @@
     tools:context="com.softmiracle.githubmvp.screen.user.UserFragment">
 
     <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nestedScroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <include layout="@layout/include_user_info" />
 
     </android.support.v4.widget.NestedScrollView>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="24dp"
+        android:visibility="visible" />
 
 </FrameLayout>
