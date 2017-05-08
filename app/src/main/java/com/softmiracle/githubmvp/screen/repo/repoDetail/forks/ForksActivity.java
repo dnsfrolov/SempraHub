@@ -55,6 +55,7 @@ public class ForksActivity extends AppCompatActivity implements ForksContract.Fo
         setSupportActionBar(mToolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle(R.string.forks);
         }
 
         setLayoutManager();

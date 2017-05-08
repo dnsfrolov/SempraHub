@@ -1,18 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_my_profile"
-            android:title="My profile" />
-        <item
-            android:id="@+id/nav_my_repos"
-            android:title="My repositories" />
-        <item
-            android:id="@+id/nav_my_gists"
-            android:title="My gists" />
-        <item
-            android:id="@+id/nav_sign_out"
-            android:title="Sign Out" />
-    </group>
+
+    <item
+        android:id="@+id/nav_my_profile"
+        android:title="My profile" />
+    <item
+        android:id="@+id/nav_my_gists"
+        android:title="My gists" />
+
+
+    <item android:title="Global">
+        <menu>
+            <item
+                android:id="@+id/nav_search"
+                android:title="Search" />
+            <item
+                android:id="@+id/nav_trending"
+                android:title="Trending repos" />
+        </menu>
+    </item>
+
+    <item android:title="Action">
+        <menu>
+            <item
+                android:id="@+id/nav_settings"
+                android:title="Settings" />
+            <item
+                android:id="@+id/nav_sign_out"
+                android:title="Sign Out" />
+        </menu>
+    </item>
 </menu>

@@ -43,26 +43,6 @@ class HomePresenterImpl implements HomeContract.HomePresenter {
     }
 
     @Override
-    public void openProfile() {
-
-    }
-
-    @Override
-    public void openRepositories() {
-
-    }
-
-    @Override
-    public void openGists() {
-
-    }
-
-    @Override
-    public void signOut() {
-
-    }
-
-    @Override
     public void detachView() {
         mHomeView = null;
     }

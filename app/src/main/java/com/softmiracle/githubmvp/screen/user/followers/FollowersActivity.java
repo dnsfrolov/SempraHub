@@ -54,6 +54,7 @@ public class FollowersActivity extends AppCompatActivity implements FollowersCon
         setSupportActionBar(mToolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle(R.string.user_fragment_followers);
         }
 
         setLayoutManager();

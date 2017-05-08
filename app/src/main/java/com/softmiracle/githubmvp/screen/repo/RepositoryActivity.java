@@ -48,6 +48,7 @@ public class RepositoryActivity extends AppCompatActivity {
         setSupportActionBar(mToolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle(getIntent().getStringExtra(Constants.EXTRA_REPO_ITEM));
         }
 
         List<Fragment> fragments = new ArrayList<>();

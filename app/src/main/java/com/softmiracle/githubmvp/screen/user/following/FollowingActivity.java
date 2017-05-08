@@ -54,6 +54,7 @@ public class FollowingActivity extends AppCompatActivity implements FollowingCon
         setSupportActionBar(mToolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle(R.string.user_fragment_following);
         }
 
         setLayoutManager();

@@ -55,6 +55,7 @@ public class WatchersActivity extends AppCompatActivity implements WatchersContr
         setSupportActionBar(mToolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle(R.string.watchers);
         }
 
         setLayoutManager();

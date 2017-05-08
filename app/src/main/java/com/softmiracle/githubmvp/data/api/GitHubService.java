@@ -1,9 +1,9 @@
 package com.softmiracle.githubmvp.data.api;
 
+import com.softmiracle.githubmvp.data.models.Authorization;
 import com.softmiracle.githubmvp.data.models.CreateAuthorization;
 import com.softmiracle.githubmvp.data.models.Repo;
 import com.softmiracle.githubmvp.data.models.User;
-import com.softmiracle.githubmvp.data.models.Authorization;
 
 import java.util.List;
 

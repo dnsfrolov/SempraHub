@@ -23,14 +23,6 @@ interface HomeContract {
 
         void loadUserInfo(String user);
 
-        void openProfile();
-
-        void openRepositories();
-
-        void openGists();
-
-        void signOut();
-
         void detachView();
     }
 }

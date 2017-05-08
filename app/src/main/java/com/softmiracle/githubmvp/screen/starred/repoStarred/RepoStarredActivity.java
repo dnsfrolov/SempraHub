@@ -56,6 +56,7 @@ public class RepoStarredActivity extends AppCompatActivity implements RepoStarre
         setSupportActionBar(mToolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle(R.string.stars);
         }
 
         setLayoutManager();

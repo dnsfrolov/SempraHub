@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.softmiracle.githubmvp.R;
+import com.softmiracle.githubmvp.data.models.User;
 import com.softmiracle.githubmvp.screen.adapters.ProfileViewPagerAdapter;
 import com.softmiracle.githubmvp.screen.repo.RepoListFragment;
 import com.softmiracle.githubmvp.screen.starred.userStarred.UserStarredListFragment;
@@ -48,6 +49,7 @@ public class ProfileActivity extends AppCompatActivity {
         setSupportActionBar(mToolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle(getIntent().getStringExtra(Constants.EXTRA_USERNAME));
         }
 
         List<Fragment> fragments = new ArrayList<>();

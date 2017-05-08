@@ -71,6 +71,9 @@ public class UserFragment extends Fragment implements UserContract.UserView {
     @BindView(R.id.ll_bio_user_info)
     LinearLayout mBioLayout;
 
+    @BindView(R.id.ll_container_user_info)
+    LinearLayout llInfoContainer;
+
     private UserContract.UserPresenter mPresenter;
 
     public static UserFragment newInstance() {
@@ -101,7 +104,7 @@ public class UserFragment extends Fragment implements UserContract.UserView {
     public void showUserProfile(User user) {
         getActivity().getIntent().putExtra(Constants.EXTRA_USERNAME, user.getLogin());
         Glide.with(this).load(user.getAvatar()).into(mAvatar);
-        mUsername.setText(user.getName());
+        mUsername.setText(user.getName() != null ? user.getName() : user.getLogin());
         mCreatedAt.setText(DateFormat.getDateFormat(getActivity()).format(user.getCreatedAt()));
         mFollowers.setText(user.getFollowers());
         mFollowing.setText(user.getFollowing());
@@ -109,30 +112,35 @@ public class UserFragment extends Fragment implements UserContract.UserView {
 
         if (user.getLocation() != null) {
             mLocation.setText(user.getLocation());
+            llInfoContainer.setVisibility(View.VISIBLE);
         } else {
             mLocationLayout.setVisibility(View.GONE);
         }
 
         if (user.getEmail() != null) {
             mEmail.setText(user.getEmail());
+            llInfoContainer.setVisibility(View.VISIBLE);
         } else {
             mEmailLayout.setVisibility(View.GONE);
         }
 
         if (user.getCompany() != null) {
             mCompany.setText(user.getCompany());
+            llInfoContainer.setVisibility(View.VISIBLE);
         } else {
             mCompanyLayout.setVisibility(View.GONE);
         }
 
         if (user.getBio() != null) {
             mBio.setText(user.getBio());
+            llInfoContainer.setVisibility(View.VISIBLE);
         } else {
             mBioLayout.setVisibility(View.GONE);
         }
 
         if (user.getBlog() != null && !user.getBlog().isEmpty()) {
             mBlog.setText(user.getBlog());
+            llInfoContainer.setVisibility(View.VISIBLE);
         } else {
             mBlogLayout.setVisibility(View.GONE);
         }

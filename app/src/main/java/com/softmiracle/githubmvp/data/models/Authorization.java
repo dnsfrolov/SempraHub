@@ -72,6 +72,9 @@ public class Authorization implements Parcelable {
         return scopes;
     }
 
+    public Authorization() {
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -91,9 +94,6 @@ public class Authorization implements Parcelable {
         dest.writeStringArray(this.scopes);
     }
 
-    public Authorization() {
-    }
-
     protected Authorization(Parcel in) {
         this.id = in.readInt();
         this.token = in.readString();
@@ -107,7 +107,7 @@ public class Authorization implements Parcelable {
         this.scopes = in.createStringArray();
     }
 
-    public static final Parcelable.Creator<Authorization> CREATOR = new Parcelable.Creator<Authorization>() {
+    public static final Creator<Authorization> CREATOR = new Creator<Authorization>() {
         @Override
         public Authorization createFromParcel(Parcel source) {
             return new Authorization(source);

@@ -32,52 +32,8 @@ public class Repo implements Parcelable {
     private String openIssuesCount;
     @SerializedName("subscribers_count")
     private String watchersCount;
-
+    @SerializedName("owner")
     private User owner;
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setLanguage(String language) {
-        this.language = language;
-    }
-
-    public void setForksCount(String forksCount) {
-        this.forksCount = forksCount;
-    }
-
-    public void setStargazersCount(String stargazersCount) {
-        this.stargazersCount = stargazersCount;
-    }
-
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public void setFork(boolean fork) {
-        isFork = fork;
-    }
-
-    public void setOpenIssuesCount(String openIssuesCount) {
-        this.openIssuesCount = openIssuesCount;
-    }
-
-    public void setWatchersCount(String watchersCount) {
-        this.watchersCount = watchersCount;
-    }
-
-    public void setOwner(User owner) {
-        this.owner = owner;
-    }
 
     public User getOwner() {
         return owner;

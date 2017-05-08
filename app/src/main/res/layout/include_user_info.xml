@@ -160,148 +160,154 @@
 
             </LinearLayout>
 
-
             <LinearLayout
+                android:id="@+id/ll_container_user_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="8dp"
+                android:visibility="gone"
                 android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/user_fragment_information"
-                    android:textSize="18sp" />
-
-                <View
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorDarkerGray" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ll_location_user_info"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="16dp"
-                android:orientation="horizontal">
-
-                <net.steamcrafted.materialiconlib.MaterialIconView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:materialIcon="map_marker"
-                    app:materialIconColor="@color/cardview_dark_background" />
-
-                <TextView
-                    android:id="@+id/tv_location_user_info"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
-                    android:layout_marginStart="8dp"
-                    android:textSize="14sp" />
-            </LinearLayout>
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
+                    android:orientation="vertical">
 
-            <LinearLayout
-                android:id="@+id/ll_email_user_info"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="8dp"
-                android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/user_fragment_information"
+                        android:textSize="18sp" />
 
-                <net.steamcrafted.materialiconlib.MaterialIconView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:materialIcon="email"
-                    app:materialIconColor="@color/cardview_dark_background" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorDarkerGray" />
 
-                <TextView
-                    android:id="@+id/tv_email_user_info"
-                    android:layout_width="wrap_content"
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_location_user_info"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
-                    android:layout_marginStart="8dp"
-                    android:textSize="14sp" />
-            </LinearLayout>
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal">
 
-            <LinearLayout
-                android:id="@+id/ll_company_user_info"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="8dp"
-                android:orientation="horizontal">
+                    <net.steamcrafted.materialiconlib.MaterialIconView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:materialIcon="map_marker"
+                        app:materialIconColor="@color/cardview_dark_background" />
 
-                <net.steamcrafted.materialiconlib.MaterialIconView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:materialIcon="domain"
-                    app:materialIconColor="@color/cardview_dark_background" />
+                    <TextView
+                        android:id="@+id/tv_location_user_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginStart="8dp"
+                        android:textSize="14sp" />
+                </LinearLayout>
 
-                <TextView
-                    android:id="@+id/tv_company_user_info"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginStart="8dp"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ll_blog_user_info"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="8dp"
-                android:orientation="horizontal">
-
-                <net.steamcrafted.materialiconlib.MaterialIconView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:materialIcon="newspaper"
-                    app:materialIconColor="@color/cardview_dark_background" />
-
-                <TextView
-                    android:id="@+id/tv_blog_user_info"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:id="@+id/ll_email_user_info"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
-                    android:layout_marginStart="8dp"
-                    android:textSize="14sp" />
-            </LinearLayout>
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
 
-            <LinearLayout
-                android:id="@+id/ll_bio_user_info"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="8dp"
-                android:orientation="horizontal">
+                    <net.steamcrafted.materialiconlib.MaterialIconView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:materialIcon="email"
+                        app:materialIconColor="@color/cardview_dark_background" />
 
-                <net.steamcrafted.materialiconlib.MaterialIconView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:materialIcon="account_location"
-                    app:materialIconColor="@color/cardview_dark_background" />
+                    <TextView
+                        android:id="@+id/tv_email_user_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginStart="8dp"
+                        android:textSize="14sp" />
+                </LinearLayout>
 
-                <TextView
-                    android:id="@+id/tv_bio_user_info"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:id="@+id/ll_company_user_info"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
-                    android:layout_marginStart="8dp"
-                    android:textSize="14sp" />
-            </LinearLayout>
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
 
+                    <net.steamcrafted.materialiconlib.MaterialIconView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:materialIcon="domain"
+                        app:materialIconColor="@color/cardview_dark_background" />
+
+                    <TextView
+                        android:id="@+id/tv_company_user_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginStart="8dp"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_blog_user_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <net.steamcrafted.materialiconlib.MaterialIconView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:materialIcon="newspaper"
+                        app:materialIconColor="@color/cardview_dark_background" />
+
+                    <TextView
+                        android:id="@+id/tv_blog_user_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginStart="8dp"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_bio_user_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <net.steamcrafted.materialiconlib.MaterialIconView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:materialIcon="account_location"
+                        app:materialIconColor="@color/cardview_dark_background" />
+
+                    <TextView
+                        android:id="@+id/tv_bio_user_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginStart="8dp"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
 
     </android.support.v7.widget.CardView>
