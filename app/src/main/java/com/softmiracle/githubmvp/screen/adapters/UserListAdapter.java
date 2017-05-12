@@ -21,15 +21,15 @@ import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
- * Created by dnsfrolov on 30.04.2017.
+ * Created by dnsfrolov on 09.05.2017.
  */
 
-public class FollowersAdapter extends RecyclerView.Adapter {
+public class UserListAdapter extends RecyclerView.Adapter {
 
     private List<User> mList;
     private OnItemClickListener<User> mListener;
 
-    public FollowersAdapter(OnItemClickListener<User> listener) {
+    public UserListAdapter(OnItemClickListener<User> listener) {
         this.mList = new ArrayList<>();
         this.mListener = listener;
     }
@@ -49,15 +49,15 @@ public class FollowersAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.user_item_list, parent, false);
-        return new FollowersHolder(view);
+        return new UserHolder(view);
     }
 
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
-        final FollowersHolder followersHolder = (FollowersHolder) holder;
-        followersHolder.initData(holder.getAdapterPosition());
+        final UserHolder userHolder = (UserHolder) holder;
+        userHolder.initData(holder.getAdapterPosition());
 
-        followersHolder.mCardView.setOnClickListener(new View.OnClickListener() {
+        userHolder.mCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mListener != null) {
@@ -72,7 +72,7 @@ public class FollowersAdapter extends RecyclerView.Adapter {
         return mList != null ? mList.size() : 0;
     }
 
-    class FollowersHolder extends RecyclerView.ViewHolder {
+    class UserHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.cardview_user_list)
         CardView mCardView;
@@ -83,7 +83,7 @@ public class FollowersAdapter extends RecyclerView.Adapter {
         @BindView(R.id.tv_username_user_list)
         TextView mUsername;
 
-        FollowersHolder(View view) {
+        UserHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
         }

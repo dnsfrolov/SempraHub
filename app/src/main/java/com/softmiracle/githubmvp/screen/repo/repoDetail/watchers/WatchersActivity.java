@@ -13,7 +13,7 @@ import android.view.MenuItem;
 import com.softmiracle.githubmvp.R;
 import com.softmiracle.githubmvp.SempraApplication;
 import com.softmiracle.githubmvp.data.models.User;
-import com.softmiracle.githubmvp.screen.adapters.WatchersAdapter;
+import com.softmiracle.githubmvp.screen.adapters.UserListAdapter;
 import com.softmiracle.githubmvp.screen.user.ProfileActivity;
 import com.softmiracle.githubmvp.utils.Constants;
 import com.softmiracle.githubmvp.utils.EndlessRecyclerViewScrollListener;
@@ -35,7 +35,7 @@ public class WatchersActivity extends AppCompatActivity implements WatchersContr
     @BindView(R.id.swipe_watchers_list)
     SwipeRefreshLayout mRefreshLayout;
 
-    private WatchersAdapter mAdapter;
+    private UserListAdapter mAdapter;
     private WatchersContract.WatchersPresenter mPresenter;
     private LinearLayoutManager mLayoutManager;
 
@@ -76,7 +76,7 @@ public class WatchersActivity extends AppCompatActivity implements WatchersContr
     }
 
     public void setAdapter() {
-        mAdapter = new WatchersAdapter(this);
+        mAdapter = new UserListAdapter(this);
         mRecyclerView.setAdapter(mAdapter);
     }
 

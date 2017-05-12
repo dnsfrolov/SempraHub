@@ -1,8 +1,9 @@
-package com.softmiracle.githubmvp.utils;
+package com.softmiracle.githubmvp.utils.prefs;
 
 import android.support.annotation.NonNull;
 
 import com.orhanobut.hawk.Hawk;
+import com.softmiracle.githubmvp.utils.Constants;
 
 /**
  * Created by dnsfrolov on 01.04.2017.

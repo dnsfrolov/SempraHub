@@ -13,7 +13,7 @@ import android.view.MenuItem;
 import com.softmiracle.githubmvp.R;
 import com.softmiracle.githubmvp.SempraApplication;
 import com.softmiracle.githubmvp.data.models.User;
-import com.softmiracle.githubmvp.screen.adapters.RepoStarredAdapter;
+import com.softmiracle.githubmvp.screen.adapters.UserListAdapter;
 import com.softmiracle.githubmvp.screen.user.ProfileActivity;
 import com.softmiracle.githubmvp.utils.Constants;
 import com.softmiracle.githubmvp.utils.EndlessRecyclerViewScrollListener;
@@ -36,7 +36,7 @@ public class RepoStarredActivity extends AppCompatActivity implements RepoStarre
     @BindView(R.id.swipe_repo_starred)
     SwipeRefreshLayout refreshLayout;
 
-    private RepoStarredAdapter mAdapter;
+    private UserListAdapter mAdapter;
     private RepoStarredContract.RepoStarredPresenter mPresenter;
     private LinearLayoutManager mLayoutManager;
 
@@ -77,7 +77,7 @@ public class RepoStarredActivity extends AppCompatActivity implements RepoStarre
     }
 
     public void setAdapter() {
-        mAdapter = new RepoStarredAdapter(this);
+        mAdapter = new UserListAdapter(this);
         mRecyclerView.setAdapter(mAdapter);
     }
 

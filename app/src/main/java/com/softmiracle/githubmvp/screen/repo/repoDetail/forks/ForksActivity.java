@@ -13,7 +13,8 @@ import android.view.MenuItem;
 import com.softmiracle.githubmvp.R;
 import com.softmiracle.githubmvp.SempraApplication;
 import com.softmiracle.githubmvp.data.models.Repo;
-import com.softmiracle.githubmvp.screen.adapters.ForksAdapter;
+import com.softmiracle.githubmvp.screen.adapters.RepoListAdapter;
+import com.softmiracle.githubmvp.screen.adapters.UserListAdapter;
 import com.softmiracle.githubmvp.screen.user.ProfileActivity;
 import com.softmiracle.githubmvp.utils.Constants;
 import com.softmiracle.githubmvp.utils.EndlessRecyclerViewScrollListener;
@@ -35,7 +36,7 @@ public class ForksActivity extends AppCompatActivity implements ForksContract.Fo
     @BindView(R.id.swipe_watchers_list)
     SwipeRefreshLayout mRefreshLayout;
 
-    private ForksAdapter mAdapter;
+    private RepoListAdapter mAdapter;
     private ForksContract.ForksPresenter mPresenter;
     private LinearLayoutManager mLayoutManager;
 
@@ -76,7 +77,7 @@ public class ForksActivity extends AppCompatActivity implements ForksContract.Fo
     }
 
     public void setAdapter() {
-        mAdapter = new ForksAdapter(this);
+        mAdapter = new RepoListAdapter(this);
         mRecyclerView.setAdapter(mAdapter);
     }
 

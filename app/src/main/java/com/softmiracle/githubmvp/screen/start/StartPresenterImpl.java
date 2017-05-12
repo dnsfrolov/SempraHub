@@ -2,7 +2,7 @@ package com.softmiracle.githubmvp.screen.start;
 
 import android.text.TextUtils;
 
-import com.softmiracle.githubmvp.utils.AccountPreferences;
+import com.softmiracle.githubmvp.utils.prefs.AccountPreferences;
 
 /**
  * Created by dnsfrolov on 04.04.2017.

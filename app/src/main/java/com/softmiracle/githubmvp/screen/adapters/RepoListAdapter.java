@@ -115,7 +115,7 @@ public class RepoListAdapter extends RecyclerView.Adapter {
                 mAvatar.setIcon(MaterialDrawableBuilder.IconValue.BOOK);
             }
             mFullName.setText(repo.getFullName());
-            mUpdatedAt.setText(DateFormat.getMediumDateFormat(SempraApplication.getInstance()).format(repo.getUpdatedAt()));
+            mUpdatedAt.setText(String.format("%s %s", SempraApplication.getInstance().getResources().getString(R.string.updated), DateFormat.getMediumDateFormat(SempraApplication.getInstance()).format(repo.getUpdatedAt())));
             if (repo.getLanguage() != null) {
                 mLanguage.setText(repo.getLanguage());
             } else {
@@ -125,7 +125,7 @@ public class RepoListAdapter extends RecyclerView.Adapter {
             mStars.setText(repo.getStargazersCount());
 
             if (repo.getDescription() != null) {
-                mDescription.setText(SempraApplication.getInstance().getResources().getString(R.string.description) + repo.getDescription());
+                mDescription.setText(String.format("%s %s", SempraApplication.getInstance().getResources().getString(R.string.description), repo.getDescription()));
             } else {
                 mDescription.setText(SempraApplication.getInstance().getResources().getString(R.string.no_description));
             }

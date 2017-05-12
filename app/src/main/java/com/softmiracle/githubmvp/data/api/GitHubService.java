@@ -3,6 +3,7 @@ package com.softmiracle.githubmvp.data.api;
 import com.softmiracle.githubmvp.data.models.Authorization;
 import com.softmiracle.githubmvp.data.models.CreateAuthorization;
 import com.softmiracle.githubmvp.data.models.Repo;
+import com.softmiracle.githubmvp.data.models.Search;
 import com.softmiracle.githubmvp.data.models.User;
 
 import java.util.List;
@@ -24,6 +25,12 @@ public interface GitHubService {
     @POST("/authorizations")
     Call<Authorization> getAuthorization(@Header("Authorization") String authorization,
                                          @Body CreateAuthorization createAuthorization);
+
+    @GET("/search/repositories?per_page=20")
+    Call<Search<Repo>> searchRepo(@Query("q") String q, @Query("page") int page);
+
+    @GET("/search/users?per_page=20")
+    Call<Search<User>> searchUser(@Query("q") String q, @Query("page") int page);
 
     @GET("/users/{user}")
     Call<User> getUserProfile(@Path("user") String user);

@@ -20,4 +20,5 @@
     <string name="forks">Forks</string>
     <string name="stars">Stars</string>
     <string name="my_news">My news</string>
+    <string name="action_search">Search</string>
 </resources>

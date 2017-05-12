@@ -13,7 +13,7 @@ import android.view.MenuItem;
 import com.softmiracle.githubmvp.R;
 import com.softmiracle.githubmvp.SempraApplication;
 import com.softmiracle.githubmvp.data.models.User;
-import com.softmiracle.githubmvp.screen.adapters.FollowingAdapter;
+import com.softmiracle.githubmvp.screen.adapters.UserListAdapter;
 import com.softmiracle.githubmvp.screen.user.ProfileActivity;
 import com.softmiracle.githubmvp.utils.Constants;
 import com.softmiracle.githubmvp.utils.EndlessRecyclerViewScrollListener;
@@ -35,7 +35,7 @@ public class FollowingActivity extends AppCompatActivity implements FollowingCon
     @BindView(R.id.swipe_following_list)
     SwipeRefreshLayout mRefreshLayout;
 
-    private FollowingAdapter mAdapter;
+    private UserListAdapter mAdapter;
     private FollowingContract.FollowingPresenter mPresenter;
     private LinearLayoutManager mLayoutManager;
 
@@ -73,7 +73,7 @@ public class FollowingActivity extends AppCompatActivity implements FollowingCon
     }
 
     public void setAdapter() {
-        mAdapter = new FollowingAdapter(this);
+        mAdapter = new UserListAdapter(this);
         mRecyclerView.setAdapter(mAdapter);
     }
 

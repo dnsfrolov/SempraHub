@@ -103,7 +103,7 @@ public class RepoDetailFragment extends Fragment implements RepoDetailContract.R
             mLangLayout.setVisibility(View.GONE);
         }
         if (repo.getDescription() != null) {
-            mDescription.setText(getResources().getString(R.string.description) + repo.getDescription());
+            mDescription.setText(String.format("%s %s",getResources().getString(R.string.description), repo.getDescription()));
         } else {
             mDescription.setText(SempraApplication.getInstance().getResources().getString(R.string.no_description));
         }

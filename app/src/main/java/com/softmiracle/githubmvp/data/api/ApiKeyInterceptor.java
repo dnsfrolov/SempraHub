@@ -3,7 +3,7 @@ package com.softmiracle.githubmvp.data.api;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
-import com.softmiracle.githubmvp.utils.AccountPreferences;
+import com.softmiracle.githubmvp.utils.prefs.AccountPreferences;
 
 import java.io.IOException;
 

@@ -19,9 +19,10 @@ import com.softmiracle.githubmvp.R;
 import com.softmiracle.githubmvp.SempraApplication;
 import com.softmiracle.githubmvp.data.api.GithubServiceGenerator;
 import com.softmiracle.githubmvp.data.models.User;
+import com.softmiracle.githubmvp.screen.search.SearchActivity;
 import com.softmiracle.githubmvp.screen.start.StartActivity;
 import com.softmiracle.githubmvp.screen.user.ProfileActivity;
-import com.softmiracle.githubmvp.utils.AccountPreferences;
+import com.softmiracle.githubmvp.utils.prefs.AccountPreferences;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -76,6 +77,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_my_profile:
                 showUserProfile();
                 break;
+            case R.id.nav_search:
+                showSearchScreen();
+                break;
             case R.id.nav_sign_out:
                 AccountPreferences.removeToken();
                 GithubServiceGenerator.recreate();
@@ -85,6 +89,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void showSearchScreen() {
+        startActivity(SearchActivity.newIntent(this));
     }
 
     @Override

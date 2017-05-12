@@ -5,7 +5,7 @@ import com.softmiracle.githubmvp.data.interactor.InteractorCallback;
 import com.softmiracle.githubmvp.data.interactor.LoginInteractor;
 import com.softmiracle.githubmvp.data.models.Authorization;
 import com.softmiracle.githubmvp.data.models.CreateAuthorization;
-import com.softmiracle.githubmvp.utils.AccountPreferences;
+import com.softmiracle.githubmvp.utils.prefs.AccountPreferences;
 import com.softmiracle.githubmvp.utils.AuthorizationUtils;
 
 import retrofit2.Call;
