@@ -27,7 +27,7 @@
     <string name="def_value">light</string>
     <string name="pref_general_title_theme">Set Theme</string>
     <string-array name="pref_theme_titles">
-        <item>Lignt</item>
+        <item>Light</item>
         <item>Dark</item>
     </string-array>
     <string-array name="pref_theme_values">

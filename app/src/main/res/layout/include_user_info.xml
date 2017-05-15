@@ -189,7 +189,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="?attr/location_icon"
+                        app:srcCompat="?attr/location_icon"
                         tools:ignore="ContentDescription" />
 
                     <TextView
@@ -213,7 +213,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="?attr/email_icon"
+                        app:srcCompat="?attr/email_icon"
                         tools:ignore="ContentDescription" />
 
                     <TextView
@@ -237,7 +237,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="?attr/company_icon"
+                        app:srcCompat="?attr/company_icon"
                         tools:ignore="ContentDescription" />
 
                     <TextView
@@ -261,7 +261,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="?attr/blog_icon"
+                        app:srcCompat="?attr/blog_icon"
                         tools:ignore="ContentDescription" />
 
                     <TextView
@@ -285,7 +285,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="?attr/bio_icon"
+                        app:srcCompat="?attr/bio_icon"
                         tools:ignore="ContentDescription" />
 
                     <TextView
