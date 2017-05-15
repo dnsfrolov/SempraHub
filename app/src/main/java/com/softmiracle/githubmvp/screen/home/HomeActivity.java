@@ -110,7 +110,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         final ImageView avatarView = (ImageView) headerLayout.findViewById(R.id.nav_avatar_view);
         final TextView nameView = (TextView) headerLayout.findViewById(R.id.nav_name_view);
 
-        nameView.setText(user.getName());
+        nameView.setText(user.getLogin());
         Glide.with(getBaseContext()).load(user.getAvatar()).into(avatarView);
         avatarView.setOnClickListener(new View.OnClickListener() {
             @Override

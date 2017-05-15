@@ -29,10 +29,18 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/avatar_repo_list"
+                android:id="@+id/avatar_fork_repo_list"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 app:srcCompat="?attr/avatar_fork_repo_icon"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/avatar_repo_list"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:visibility="gone"
+                app:srcCompat="?attr/avatar_repo_icon"
                 tools:ignore="ContentDescription" />
 
             <LinearLayout

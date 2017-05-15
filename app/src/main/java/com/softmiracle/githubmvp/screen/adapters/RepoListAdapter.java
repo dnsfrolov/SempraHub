@@ -15,9 +15,6 @@ import com.softmiracle.githubmvp.SempraApplication;
 import com.softmiracle.githubmvp.data.models.Repo;
 import com.softmiracle.githubmvp.utils.OnItemClickListener;
 
-import net.steamcrafted.materialiconlib.MaterialDrawableBuilder;
-import net.steamcrafted.materialiconlib.MaterialIconView;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -81,8 +78,11 @@ public class RepoListAdapter extends RecyclerView.Adapter {
         @BindView(R.id.cardview_repo_list)
         CardView mCardView;
 
+        @BindView(R.id.avatar_fork_repo_list)
+        ImageView mAvatarFork;
+
         @BindView(R.id.avatar_repo_list)
-        ImageView mAvatar;
+        ImageView mAvatarRepo;
 
         @BindView(R.id.tv_full_name_repo_list)
         TextView mFullName;
@@ -113,7 +113,8 @@ public class RepoListAdapter extends RecyclerView.Adapter {
         void initData(int adapterPosition) {
             final Repo repo = mList.get(adapterPosition);
             if (!repo.isFork()) {
-                //mAvatar.setImageResource(SempraApplication.getInstance().getResources().R.attr.avatar_repo_icon);
+                mAvatarFork.setVisibility(View.GONE);
+                mAvatarRepo.setVisibility(View.VISIBLE);
             }
             mFullName.setText(repo.getFullName());
             mUpdatedAt.setText(String.format("%s %s", SempraApplication.getInstance().getResources().getString(R.string.updated), DateFormat.getMediumDateFormat(SempraApplication.getInstance()).format(repo.getUpdatedAt())));
