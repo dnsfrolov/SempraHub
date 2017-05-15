@@ -4,24 +4,19 @@
     <color name="colorDarkerGray">#d4d4d4</color>
     <color name="card">#384047</color>
 
+    <color name="colorDark">#000000</color>
+    <color name="colorLight">#FAFAFA</color>
+
     <!--theme-->
-    <color name="colorPrimary_light">#fafafa</color>
+    <color name="colorAccent_light">#FAFAFA</color>
+    <color name="colorPrimary_light">#FFFFFF</color>
+    <color name="colorPrimaryDark_light">#C7C7C7</color>
+    <color name="colorAccentSecondary_light">#212121</color>
+    <color name="colorSecondary_light">#484848</color>
+    <color name="colorSecondaryDark_light">#000000</color>
+
+    <color name="colorAccent_dark">#1b1b1b</color>
     <color name="colorPrimary_dark">#212121</color>
-    <color name="colorPrimaryDark_light">#f1f1f1</color>
     <color name="colorPrimaryDark_dark">#1a1a1a</color>
-    <color name="colorAccent_light">@color/colorTextTitle_light</color>
-    <color name="colorAccent_dark">@color/colorTextTitle_dark</color>
 
-    <!--text-->
-    <color name="colorTextTitle_light">@color/colorTextDark</color>
-   <!-- <color name="colorTextSubtitle_light"></color>
-    <color name="colorTextContent_light"></color>-->
-
-    <color name="colorTextTitle_dark">@color/colorTextLight</color>
-    <!--<color name="colorTextSubtitle_dark"></color>
-    <color name="colorTextContent_dark"></color>-->
-
-    <color name="colorTextDark">#424242</color>
-
-    <color name="colorTextLight">#fafafa</color>
 </resources>

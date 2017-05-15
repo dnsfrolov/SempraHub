@@ -4,10 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.softmiracle.githubmvp.R;
 import com.softmiracle.githubmvp.screen.home.HomeActivity;
+import com.softmiracle.githubmvp.screen.settings.SettingsActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,6 +26,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Lo
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(SettingsActivity.getTheme(this, SettingsActivity.THEME_TYPE_LOGIN));
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
 

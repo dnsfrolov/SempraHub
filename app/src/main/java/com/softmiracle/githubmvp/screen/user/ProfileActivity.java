@@ -9,12 +9,11 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.widget.ProgressBar;
 
 import com.softmiracle.githubmvp.R;
-import com.softmiracle.githubmvp.data.models.User;
 import com.softmiracle.githubmvp.screen.adapters.ProfileViewPagerAdapter;
 import com.softmiracle.githubmvp.screen.repo.RepoListFragment;
+import com.softmiracle.githubmvp.screen.settings.SettingsActivity;
 import com.softmiracle.githubmvp.screen.starred.userStarred.UserStarredListFragment;
 import com.softmiracle.githubmvp.utils.Constants;
 
@@ -44,6 +43,7 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(SettingsActivity.getTheme(this, SettingsActivity.THEME_TYPE_GLOBAL));
         setContentView(R.layout.activity_profile);
         ButterKnife.bind(this);
 

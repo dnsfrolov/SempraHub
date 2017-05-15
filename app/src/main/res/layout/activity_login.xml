@@ -22,9 +22,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/et_username"
-        android:inputType="textPassword"
         android:layout_centerHorizontal="true"
-        android:hint="@string/password" />
+        android:hint="@string/password"
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/btn_signIn"
@@ -32,6 +32,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/et_password"
         android:layout_centerHorizontal="true"
-        android:text="login" />
+        android:text="Sign In" />
 
 </RelativeLayout>

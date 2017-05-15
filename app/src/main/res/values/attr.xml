@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <attr name="header_username" format="reference|color" />
+    <attr name="header_background" format="reference|color" />
 
-    <declare-styleable name="ThemeColor">
-        <attr name="content_color" format="reference|color" />
-        <attr name="title_color" format="reference|color" />
-        <attr name="subtitle_color" format="reference|color" />
-    </declare-styleable>
+    <attr name="view_line" format="reference|color" />
+
+    <attr name="nav_view_profile_icon" format="reference|color" />
+    <attr name="nav_view_gist_icon" format="reference|color" />
+    <attr name="nav_view_search_icon" format="reference|color" />
+    <attr name="nav_view_trending_icon" format="reference|color" />
+    <attr name="nav_view_settings_icon" format="reference|color" />
+    <attr name="nav_view_sign_out_icon" format="reference|color" />
+
+    <attr name="location_icon" format="reference" />
+    <attr name="email_icon" format="reference" />
+    <attr name="company_icon" format="reference" />
+    <attr name="blog_icon" format="reference" />
+    <attr name="bio_icon" format="reference" />
+    <attr name="lang_icon" format="reference" />
+    <attr name="avatar_fork_repo_icon" format="reference" />
+    <attr name="avatar_repo_icon" format="reference" />
+    <attr name="fork_icon" format="reference" />
+    <attr name="star_icon" format="reference" />
+    <attr name="search_icon" format="reference" />
 </resources>

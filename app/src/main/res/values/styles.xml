@@ -1,32 +1,71 @@
 <resources>
 
-    <!-- Base application theme. -->
     <style name="SempraTheme_light" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary_light</item>
-        <item name="colorPrimaryDark">@color/colorPrimary_dark</item>
-        <item name="colorAccent">@color/colorAccent_light</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark_light</item>
+        <item name="colorAccent">@color/colorAccent_dark</item>
+
+        <item name="header_background">@drawable/header_dark</item>
+        <item name="header_username">@color/colorLight</item>
+
+        <item name="view_line">@color/colorDarkerGray</item>
+
+        <item name="location_icon">@drawable/location_icon_dark</item>
+        <item name="email_icon">@drawable/email_icon_dark</item>
+        <item name="company_icon">@drawable/company_icon_dark</item>
+        <item name="blog_icon">@drawable/blog_icon_dark</item>
+        <item name="bio_icon">@drawable/bio_icon_dark</item>
+        <item name="lang_icon">@drawable/lang_icon_dark</item>
+        <item name="avatar_fork_repo_icon">@drawable/avatar_fork_repo_icon_dark</item>
+        <item name="avatar_repo_icon">@drawable/avatar_repo_icon_dark</item>
+        <item name="fork_icon">@drawable/fork_icon_dark</item>
+        <item name="star_icon">@drawable/star_icon_dark</item>
+        <item name="search_icon">@drawable/search_icon_dark</item>
+
+        <item name="nav_view_profile_icon">@drawable/profile_icon_light</item>
+        <item name="nav_view_gist_icon">@drawable/gist_icon_light</item>
+        <item name="nav_view_search_icon">@drawable/search_icon_light</item>
+        <item name="nav_view_trending_icon">@drawable/trending_icon_light</item>
+        <item name="nav_view_settings_icon">@drawable/settings_icon_light</item>
+        <item name="nav_view_sign_out_icon">@drawable/sign_out_icon_light</item>
     </style>
 
     <style name="SempraTheme_dark" parent="Theme.AppCompat.NoActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary_dark</item>
-        <item name="colorPrimaryDark">@color/colorPrimary_light</item>
-        <item name="colorAccent">@color/colorAccent_dark</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark_dark</item>
+        <item name="colorAccent">@color/colorAccent_light</item>
+
+        <item name="header_background">@drawable/header_light</item>
+        <item name="header_username">@color/colorDark</item>
+
+        <item name="view_line">@color/colorDarkerGray</item>
+
+        <item name="location_icon">@drawable/location_icon_light</item>
+        <item name="email_icon">@drawable/email_icon_light</item>
+        <item name="company_icon">@drawable/company_icon_light</item>
+        <item name="blog_icon">@drawable/blog_icon_light</item>
+        <item name="bio_icon">@drawable/bio_icon_light</item>
+        <item name="lang_icon">@drawable/lang_icon_light</item>
+        <item name="avatar_fork_repo_icon">@drawable/avatar_fork_repo_icon_light</item>
+        <item name="avatar_repo_icon">@drawable/avatar_repo_icon_light</item>
+        <item name="fork_icon">@drawable/fork_icon_light</item>
+        <item name="star_icon">@drawable/star_icon_light</item>
+        <item name="search_icon">@drawable/search_icon_light</item>
+
+        <item name="nav_view_profile_icon">@drawable/profile_icon_dark</item>
+        <item name="nav_view_gist_icon">@drawable/gist_icon_dark</item>
+        <item name="nav_view_search_icon">@drawable/search_icon_dark</item>
+        <item name="nav_view_trending_icon">@drawable/trending_icon_dark</item>
+        <item name="nav_view_settings_icon">@drawable/settings_icon_dark</item>
+        <item name="nav_view_sign_out_icon">@drawable/sign_out_icon_dark</item>
     </style>
 
-    <!--toolbar-->
-    <style name="SempraToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
-        <item name="android:textColorPrimary">?attr/content_color</item>
-        <item name="android:textColorSecondary">?attr/content_color</item>
-    </style>
+    <style name="SempraTheme_light.Settings" parent="Theme.AppCompat.Light" />
 
-    <!--tabLayout-->
-    <style name="SempraTabLayoutTheme" parent="Widget.Design.TabLayout">
-        <item name="tabIndicatorColor">?attr/title_color</item>
-        <item name="tabIndicatorHeight">3dp</item>
-        <item name="tabSelectedTextColor">?android:textColorPrimary</item>
-        <item name="tabTextColor">?attr/subtitle_color</item>
-    </style>
+    <style name="SempraTheme_dark.Settings" parent="Theme.AppCompat" />
+
+    <style name="SempraTheme_light.Login" parent="Theme.AppCompat.Light" />
+
+    <style name="SempraTheme_dark.Login" parent="Theme.AppCompat" />
 
 </resources>

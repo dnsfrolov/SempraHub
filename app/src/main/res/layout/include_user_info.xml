@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -50,22 +51,13 @@
                         android:id="@+id/tv_username_user_info"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="monospace"
-                        android:textSize="18sp"
+                        android:textSize="24sp"
                         android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="monospace"
-                        android:text="@string/user_fragment_member_since"
-                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/tv_member_user_info"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="monospace"
                         android:textSize="14sp" />
 
                 </LinearLayout>
@@ -78,7 +70,7 @@
                 android:layout_height="1dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:background="@color/colorDarkerGray" />
+                android:background="?attr/view_line" />
 
 
             <LinearLayout
@@ -97,7 +89,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-
                     android:clickable="true"
                     android:gravity="center_horizontal"
                     android:orientation="vertical">
@@ -182,7 +173,7 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@color/colorDarkerGray" />
+                        android:background="?attr/view_line" />
 
                 </LinearLayout>
 
@@ -195,11 +186,11 @@
                     android:layout_marginTop="16dp"
                     android:orientation="horizontal">
 
-                    <net.steamcrafted.materialiconlib.MaterialIconView
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:materialIcon="map_marker"
-                        app:materialIconColor="@color/cardview_dark_background" />
+                        android:src="?attr/location_icon"
+                        tools:ignore="ContentDescription" />
 
                     <TextView
                         android:id="@+id/tv_location_user_info"
@@ -219,11 +210,11 @@
                     android:layout_marginTop="8dp"
                     android:orientation="horizontal">
 
-                    <net.steamcrafted.materialiconlib.MaterialIconView
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:materialIcon="email"
-                        app:materialIconColor="@color/cardview_dark_background" />
+                        android:src="?attr/email_icon"
+                        tools:ignore="ContentDescription" />
 
                     <TextView
                         android:id="@+id/tv_email_user_info"
@@ -243,11 +234,11 @@
                     android:layout_marginTop="8dp"
                     android:orientation="horizontal">
 
-                    <net.steamcrafted.materialiconlib.MaterialIconView
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:materialIcon="domain"
-                        app:materialIconColor="@color/cardview_dark_background" />
+                        android:src="?attr/company_icon"
+                        tools:ignore="ContentDescription" />
 
                     <TextView
                         android:id="@+id/tv_company_user_info"
@@ -267,11 +258,11 @@
                     android:layout_marginTop="8dp"
                     android:orientation="horizontal">
 
-                    <net.steamcrafted.materialiconlib.MaterialIconView
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:materialIcon="newspaper"
-                        app:materialIconColor="@color/cardview_dark_background" />
+                        android:src="?attr/blog_icon"
+                        tools:ignore="ContentDescription" />
 
                     <TextView
                         android:id="@+id/tv_blog_user_info"
@@ -291,11 +282,11 @@
                     android:layout_marginTop="8dp"
                     android:orientation="horizontal">
 
-                    <net.steamcrafted.materialiconlib.MaterialIconView
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:materialIcon="account_location"
-                        app:materialIconColor="@color/cardview_dark_background" />
+                        android:src="?attr/bio_icon"
+                        tools:ignore="ContentDescription" />
 
                     <TextView
                         android:id="@+id/tv_bio_user_info"
@@ -307,6 +298,5 @@
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-
     </android.support.v7.widget.CardView>
 </LinearLayout>

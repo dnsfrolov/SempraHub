@@ -115,7 +115,7 @@ public class UserFragment extends Fragment implements UserContract.UserView {
         getActivity().getIntent().putExtra(Constants.EXTRA_USERNAME, user.getLogin());
         Glide.with(this).load(user.getAvatar()).into(mAvatar);
         mUsername.setText(user.getName() != null ? user.getName() : user.getLogin());
-        mCreatedAt.setText(DateFormat.getDateFormat(getActivity()).format(user.getCreatedAt()));
+        mCreatedAt.setText(String.format("%s %s", getResources().getString(R.string.user_fragment_member_since), DateFormat.getDateFormat(getActivity()).format(user.getCreatedAt())));
         mFollowers.setText(user.getFollowers());
         mFollowing.setText(user.getFollowing());
         mRepos.setText(user.getPublicRepos());

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="200dp"
-    android:background="@color/cardview_light_background"
+    android:background="?attr/header_background"
     android:gravity="bottom"
     android:orientation="vertical"
     tools:context=".screen.home.HomeActivity">
@@ -11,13 +11,12 @@
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/nav_avatar_view"
         android:layout_width="64dp"
-        android:src="@drawable/github_circle"
-        android:visibility="visible"
         android:layout_height="64dp"
         android:layout_marginBottom="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="46dp"
+        android:layout_marginTop="30dp"
+        android:visibility="visible"
         tools:ignore="ContentDescription" />
 
     <TextView
@@ -28,6 +27,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+        android:textColor="?attr/header_username"
         android:textSize="14sp"
         android:textStyle="bold" />
 

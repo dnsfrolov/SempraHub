@@ -20,6 +20,7 @@ import com.softmiracle.githubmvp.SempraApplication;
 import com.softmiracle.githubmvp.data.api.GithubServiceGenerator;
 import com.softmiracle.githubmvp.data.models.User;
 import com.softmiracle.githubmvp.screen.search.SearchActivity;
+import com.softmiracle.githubmvp.screen.settings.SettingsActivity;
 import com.softmiracle.githubmvp.screen.start.StartActivity;
 import com.softmiracle.githubmvp.screen.user.ProfileActivity;
 import com.softmiracle.githubmvp.utils.prefs.AccountPreferences;
@@ -44,6 +45,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(SettingsActivity.getTheme(this, SettingsActivity.THEME_TYPE_GLOBAL));
         setContentView(R.layout.activity_home);
         ButterKnife.bind(this);
         setSupportActionBar(mToolbar);
@@ -80,6 +82,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_search:
                 showSearchScreen();
                 break;
+            case R.id.nav_settings:
+                showSettings();
+                break;
             case R.id.nav_sign_out:
                 AccountPreferences.removeToken();
                 GithubServiceGenerator.recreate();
@@ -89,6 +94,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void showSettings() {
+        startActivity(new Intent(this, SettingsActivity.class));
     }
 
     private void showSearchScreen() {

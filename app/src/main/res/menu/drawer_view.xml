@@ -4,9 +4,11 @@
 
     <item
         android:id="@+id/nav_my_profile"
+        android:icon="?attr/nav_view_profile_icon"
         android:title="My profile" />
     <item
         android:id="@+id/nav_my_gists"
+        android:icon="?attr/nav_view_gist_icon"
         android:title="My gists" />
 
 
@@ -14,9 +16,11 @@
         <menu>
             <item
                 android:id="@+id/nav_search"
+                android:icon="?attr/nav_view_search_icon"
                 android:title="Search" />
             <item
                 android:id="@+id/nav_trending"
+                android:icon="?attr/nav_view_trending_icon"
                 android:title="Trending repos" />
         </menu>
     </item>
@@ -25,9 +29,11 @@
         <menu>
             <item
                 android:id="@+id/nav_settings"
+                android:icon="?attr/nav_view_settings_icon"
                 android:title="Settings" />
             <item
                 android:id="@+id/nav_sign_out"
+                android:icon="?attr/nav_view_sign_out_icon"
                 android:title="Sign Out" />
         </menu>
     </item>

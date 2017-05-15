@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import com.softmiracle.githubmvp.R;
 import com.softmiracle.githubmvp.screen.adapters.RepoViewPagerAdapter;
 import com.softmiracle.githubmvp.screen.repo.repoDetail.RepoDetailFragment;
+import com.softmiracle.githubmvp.screen.settings.SettingsActivity;
 import com.softmiracle.githubmvp.utils.Constants;
 
 import java.util.ArrayList;
@@ -42,6 +43,7 @@ public class RepositoryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(SettingsActivity.getTheme(this, SettingsActivity.THEME_TYPE_GLOBAL));
         setContentView(R.layout.activity_repository);
         ButterKnife.bind(this);
 

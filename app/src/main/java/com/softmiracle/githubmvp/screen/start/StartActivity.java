@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.softmiracle.githubmvp.screen.home.HomeActivity;
 import com.softmiracle.githubmvp.screen.login.LoginActivity;
+import com.softmiracle.githubmvp.screen.settings.SettingsActivity;
 
 
 public class StartActivity extends AppCompatActivity implements StartContract.StartView {
@@ -15,7 +16,7 @@ public class StartActivity extends AppCompatActivity implements StartContract.St
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setTheme(SettingsActivity.getTheme(this, SettingsActivity.THEME_TYPE_GLOBAL));
         mPresenter = new StartPresenterImpl(this);
         mPresenter.checkAuthorized();
     }
@@ -23,7 +24,7 @@ public class StartActivity extends AppCompatActivity implements StartContract.St
     @Override
     public void setAuthorized(boolean isAuthorized) {
         Intent intent = new Intent(this, isAuthorized ? HomeActivity.class : LoginActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
 

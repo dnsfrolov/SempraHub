@@ -14,6 +14,7 @@ import com.softmiracle.githubmvp.R;
 import com.softmiracle.githubmvp.SempraApplication;
 import com.softmiracle.githubmvp.data.models.User;
 import com.softmiracle.githubmvp.screen.adapters.UserListAdapter;
+import com.softmiracle.githubmvp.screen.settings.SettingsActivity;
 import com.softmiracle.githubmvp.screen.user.ProfileActivity;
 import com.softmiracle.githubmvp.utils.Constants;
 import com.softmiracle.githubmvp.utils.EndlessRecyclerViewScrollListener;
@@ -48,6 +49,7 @@ public class FollowingActivity extends AppCompatActivity implements FollowingCon
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(SettingsActivity.getTheme(this, SettingsActivity.THEME_TYPE_GLOBAL));
         setContentView(R.layout.activity_following);
         ButterKnife.bind(this);
 

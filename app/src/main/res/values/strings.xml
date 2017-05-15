@@ -21,4 +21,18 @@
     <string name="stars">Stars</string>
     <string name="my_news">My news</string>
     <string name="action_search">Search</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+    <string name="def_value">light</string>
+    <string name="pref_general_title_theme">Set Theme</string>
+    <string-array name="pref_theme_titles">
+        <item>Lignt</item>
+        <item>Dark</item>
+    </string-array>
+    <string-array name="pref_theme_values">
+        <item>light</item>
+        <item>dark</item>
+    </string-array>
+
 </resources>

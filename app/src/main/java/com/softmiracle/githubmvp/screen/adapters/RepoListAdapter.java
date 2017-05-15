@@ -6,6 +6,7 @@ import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -81,7 +82,7 @@ public class RepoListAdapter extends RecyclerView.Adapter {
         CardView mCardView;
 
         @BindView(R.id.avatar_repo_list)
-        MaterialIconView mAvatar;
+        ImageView mAvatar;
 
         @BindView(R.id.tv_full_name_repo_list)
         TextView mFullName;
@@ -112,7 +113,7 @@ public class RepoListAdapter extends RecyclerView.Adapter {
         void initData(int adapterPosition) {
             final Repo repo = mList.get(adapterPosition);
             if (!repo.isFork()) {
-                mAvatar.setIcon(MaterialDrawableBuilder.IconValue.BOOK);
+                //mAvatar.setImageResource(SempraApplication.getInstance().getResources().R.attr.avatar_repo_icon);
             }
             mFullName.setText(repo.getFullName());
             mUpdatedAt.setText(String.format("%s %s", SempraApplication.getInstance().getResources().getString(R.string.updated), DateFormat.getMediumDateFormat(SempraApplication.getInstance()).format(repo.getUpdatedAt())));

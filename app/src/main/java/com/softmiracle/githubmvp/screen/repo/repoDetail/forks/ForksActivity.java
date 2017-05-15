@@ -14,7 +14,7 @@ import com.softmiracle.githubmvp.R;
 import com.softmiracle.githubmvp.SempraApplication;
 import com.softmiracle.githubmvp.data.models.Repo;
 import com.softmiracle.githubmvp.screen.adapters.RepoListAdapter;
-import com.softmiracle.githubmvp.screen.adapters.UserListAdapter;
+import com.softmiracle.githubmvp.screen.settings.SettingsActivity;
 import com.softmiracle.githubmvp.screen.user.ProfileActivity;
 import com.softmiracle.githubmvp.utils.Constants;
 import com.softmiracle.githubmvp.utils.EndlessRecyclerViewScrollListener;
@@ -50,6 +50,7 @@ public class ForksActivity extends AppCompatActivity implements ForksContract.Fo
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(SettingsActivity.getTheme(this, SettingsActivity.THEME_TYPE_GLOBAL));
         setContentView(R.layout.activity_forks);
         ButterKnife.bind(this);
 
