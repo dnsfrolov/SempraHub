@@ -2,6 +2,8 @@ package com.softmiracle.githubmvp.data.api;
 
 import android.support.annotation.NonNull;
 
+import com.softmiracle.githubmvp.data.api.interceptor.ApiKeyInterceptor;
+import com.softmiracle.githubmvp.data.api.interceptor.LoggingInterceptor;
 import com.softmiracle.githubmvp.utils.Constants;
 
 import okhttp3.OkHttpClient;

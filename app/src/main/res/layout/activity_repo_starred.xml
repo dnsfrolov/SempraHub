@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.softmiracle.githubmvp.screen.starred.repoStarred.RepoStarredActivity">
+    tools:context=".presentation.modules.starred.repoStarred.RepoStarredActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"

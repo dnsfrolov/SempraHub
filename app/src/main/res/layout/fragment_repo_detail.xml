@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.softmiracle.githubmvp.screen.repo.repoDetail.RepoDetailFragment">
+    tools:context=".presentation.modules.repo.detail.RepoDetailFragment">
 
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/nestedScroll"

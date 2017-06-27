@@ -35,7 +35,7 @@ public interface GitHubService {
     @GET("/users/{user}")
     Call<User> getUserProfile(@Path("user") String user);
 
-    @GET("/users/{user}/following?per_page=20")
+    @GET("/users/{user}/following?per_page=10")
     Call<List<User>> getFollowing(@Path("user") String user, @Query("page") int page);
 
     @GET("/users/{user}/followers?per_page=20")

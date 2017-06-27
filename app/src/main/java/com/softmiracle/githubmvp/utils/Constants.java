@@ -4,7 +4,7 @@ package com.softmiracle.githubmvp.utils;
  * Created by Denys on 25.02.2017.
  */
 
-public class Constants {
+public interface Constants {
 
     public static final String TOKEN = "token";
 
@@ -19,8 +19,6 @@ public class Constants {
     public static final String[] REPOSITORY_FRAGMENT_TITLES = {"Details"};
 
     public static final String[] SEARCH_FRAGMENT_TITLES = {"Users", "Repositories"};
-
-    public static final int PAGE = 1;
 
     public static final String QUERY = "Query";
 

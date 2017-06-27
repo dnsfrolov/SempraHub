@@ -6,7 +6,7 @@
     android:background="?attr/header_background"
     android:gravity="bottom"
     android:orientation="vertical"
-    tools:context=".screen.home.HomeActivity">
+    tools:context=".presentation.modules.home.HomeActivity">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/nav_avatar_view"

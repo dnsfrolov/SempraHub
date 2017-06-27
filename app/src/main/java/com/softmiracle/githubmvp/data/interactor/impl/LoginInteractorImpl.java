@@ -6,7 +6,7 @@ import com.softmiracle.githubmvp.data.interactor.LoginInteractor;
 import com.softmiracle.githubmvp.data.models.Authorization;
 import com.softmiracle.githubmvp.data.models.CreateAuthorization;
 import com.softmiracle.githubmvp.utils.prefs.AccountPreferences;
-import com.softmiracle.githubmvp.utils.AuthorizationUtils;
+import com.softmiracle.githubmvp.utils.helpers.AuthorizationHelper;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -21,7 +21,7 @@ public class LoginInteractorImpl implements LoginInteractor {
     @Override
     public void signIn(final String login, String password, final InteractorCallback<Authorization> callback) {
 
-        String authorizationStr = AuthorizationUtils.createAuth(login, password);
+        String authorizationStr = AuthorizationHelper.createAuth(login, password);
         CreateAuthorization createAuthorization = new CreateAuthorization();
 
         GithubServiceGenerator.getGithubService().getAuthorization(authorizationStr, createAuthorization)

@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/GitHubMVP.iml" filepath="$PROJECT_DIR$/GitHubMVP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SempraHub.iml" filepath="$PROJECT_DIR$/SempraHub.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
